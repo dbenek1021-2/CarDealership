@@ -1,0 +1,14 @@
+C:\Users\DaniB\Documents\SoftwareGuild\online-net-dbenek1021\Classwork\CarDealership\GuildCars.BLL\bin\Debug\GuildCars.BLL.dll
+C:\Users\DaniB\Documents\SoftwareGuild\online-net-dbenek1021\Classwork\CarDealership\GuildCars.BLL\bin\Debug\GuildCars.BLL.pdb
+C:\Users\DaniB\Documents\SoftwareGuild\online-net-dbenek1021\Classwork\CarDealership\GuildCars.BLL\obj\Debug\GuildCars.BLL.csproj.CoreCompileInputs.cache
+C:\Users\DaniB\Documents\SoftwareGuild\online-net-dbenek1021\Classwork\CarDealership\GuildCars.BLL\obj\Debug\GuildCars.BLL.dll
+C:\Users\DaniB\Documents\SoftwareGuild\online-net-dbenek1021\Classwork\CarDealership\GuildCars.BLL\obj\Debug\GuildCars.BLL.pdb
+C:\Users\DaniB\Documents\SoftwareGuild\online-net-dbenek1021\Classwork\CarDealership\GuildCars.BLL\obj\Debug\GuildCars.BLL.csprojAssemblyReference.cache
+C:\Users\DaniB\Documents\SoftwareGuild\online-net-dbenek1021\Classwork\CarDealership\GuildCars.BLL\bin\Debug\GuildCars.Data.dll
+C:\Users\DaniB\Documents\SoftwareGuild\online-net-dbenek1021\Classwork\CarDealership\GuildCars.BLL\bin\Debug\GuildCars.Models.dll
+C:\Users\DaniB\Documents\SoftwareGuild\online-net-dbenek1021\Classwork\CarDealership\GuildCars.BLL\bin\Debug\EntityFramework.dll
+C:\Users\DaniB\Documents\SoftwareGuild\online-net-dbenek1021\Classwork\CarDealership\GuildCars.BLL\bin\Debug\GuildCars.Data.pdb
+C:\Users\DaniB\Documents\SoftwareGuild\online-net-dbenek1021\Classwork\CarDealership\GuildCars.BLL\bin\Debug\GuildCars.Data.dll.config
+C:\Users\DaniB\Documents\SoftwareGuild\online-net-dbenek1021\Classwork\CarDealership\GuildCars.BLL\bin\Debug\GuildCars.Models.pdb
+C:\Users\DaniB\Documents\SoftwareGuild\online-net-dbenek1021\Classwork\CarDealership\GuildCars.BLL\bin\Debug\EntityFramework.xml
+C:\Users\DaniB\Documents\SoftwareGuild\online-net-dbenek1021\Classwork\CarDealership\GuildCars.BLL\obj\Debug\GuildCars.BLL.csproj.CopyComplete

@@ -1,0 +1,160 @@
+﻿@model GuildCars.Models.AddVehicleViewModel
+
+@{
+    ViewBag.Title = "AddVehicle";
+}
+
+<div class="row">
+    <div class="col-xs-12" id="salesInfoHeaderDiv">
+        <h2>Add Vehicle</h2>
+    </div>
+</div>
+
+@using (Html.BeginForm("AddVehicle", "Admin", FormMethod.Post, new { enctype = "multipart/form-data", id = "addVehicleSubmit" }))
+{<div class="form-row">
+    <div class="form-group col-md-12">@Html.ValidationSummary()</div>
+    <div class="form-group col-md-6">
+        <label for="make">Make</label><br />
+        @Html.DropDownListFor(c => c.carMakeModel.CarMakeId, Model.CarMakeList, new { @class = "form-control", @id = "carMake", @onchange = @"GetRightModels()" })
+    </div>
+    <div class="form-group col-md-6">
+        <label for="carmodel">Model</label><br />
+        <select id="model" name="carModelModel.CarModelId" class="form-control"></select>
+    </div>
+    <div class="form-group col-md-6">
+        <label for="type">Type</label><br />
+        @Html.DropDownListFor(c => c.carTypeModel.TypeId, Model.CarTypeList, new { @class = "form-control", @id = "form-con" })
+    </div>
+    <div class="form-group col-md-6">
+        <label for="bodyStyle">Body Style</label><br />
+        @Html.DropDownListFor(c => c.bodyStyleModel.BodyStyleId, Model.BodyStyleList, new { @class = "form-control", @id = "form-con" })
+    </div>
+    <div class="form-group col-md-6">
+        <label for="year">Year</label><br />
+        @Html.TextBoxFor(c => c.CarView.Year, new { placeholder = "ex. 2020", @class = "form-control" })
+    </div>
+    <div class="form-group col-md-6">
+        <label for="transmission">Transmission</label><br />
+        @Html.DropDownListFor(c => c.transmissionModel.TransmissionId, Model.TransmissionList, new { placeholder = "AK", @class = "form-control", @id = "form-con" })
+    </div>
+    <div class="form-group col-md-6">
+        <label for="color">Color</label><br />
+        @Html.DropDownListFor(c => c.colorModel.ColorId, Model.ColorList, new { @class = "form-control", @id = "form-con" })
+    </div>
+    <div class="form-group col-md-6">
+        <label for="interior">Interior</label><br />
+        @Html.DropDownListFor(c => c.interiorModel.InteriorId, Model.InteriorList, new { @class = "form-control", @id = "form-con" })
+    </div>
+    <div class="form-group col-md-6">
+        <label for="mileage">Mileage</label><br />
+        @Html.TextBoxFor(c => c.CarView.Mileage, new { @class = "form-control" })
+    </div>
+    <div class="form-group col-md-6">
+        <label for="vinNumber">VIN #</label><br />
+        @Html.TextBoxFor(c => c.CarView.VINnumber, new { placeholder = "$", @class = "form-control" })
+    </div>
+    <div class="form-group col-md-6">
+        <label for="MSRP">MSPR</label><br />
+        @Html.TextBoxFor(c => c.CarView.MSRP, new { @class = "form-control" })
+    </div>
+    <div class="form-group col-md-6">
+        <label for="salePrice">Sale Price</label><br />
+        @Html.TextBoxFor(c => c.CarView.SalePrice, new { placeholder = "$", @class = "form-control" })
+    </div>
+    <div class="form-group col-md-12">
+        <label for="description">Description</label><br />
+        @Html.TextAreaFor(c => c.CarView.CarDescription, new { placeholder = "Car description here...", @class = "form-control", @id = "description", @rows = "5" })
+        @Html.HiddenFor(c => c.CarView.CarId)
+        
+    </div>
+    <div class="form-group">
+        <label for="picture">Picture</label>
+        <input id="ImageUpload" name="ImageUpload" type="file" class="form-control" /><br />
+    </div>
+    <div class="form-group col-md-12">
+        <button class="btn btn-primary">Save</button>
+    </div>
+</div>
+}
+
+
+@section scripts
+    {
+    <script>
+        $(document).ready(function () {
+            //var pattern = /^[0-9A-Z]{4}(\-[0-9A-Z]{4})(\-[0-9A-Z]{4})(\-[0-9A-Z]{4})(\-[0-9A-Z]{4})$/;
+            $('#addVehicleSubmit').validate({
+                rules: {
+                    'carMake.CarMakeId': {
+                        required: true
+                    },
+                    'carModel.CarModelId': {
+                        required: true
+                    },
+                    'carType.TypeId': {
+                        required: true
+                    },
+                    'bodyStyle.BodyStyleId': {
+                        required: true
+                    },
+                    'Car.Year': {
+                        required: true,
+                        number: true,
+                        minlength: 4
+                    },
+                    'transmission.TransmissionId': {
+                        required: true
+                    },
+                    'color.ColorId': {
+                        required: true
+                    },
+                    'interior.InteriorId': {
+                        required: true
+                    },
+                    'Car.Mileage': {
+                        required: true,
+                        number: true,
+                        minlength: 2
+                    },
+                    'Car.VINnumber': {
+                        required: true
+                    },
+                    'Car.MSRP': {
+                        required: true,
+                        number: true,
+                        minlength: 2
+                    },
+                    'Car.SalePrice': {
+                        required: true,
+                        number: true,
+                        minlength: 2
+                    },
+                    'Car.CarDescription': {
+                        required: true
+                    },
+                    'ImageUpload': {
+                        required: true
+                    }
+                }
+            });
+            GetRightModels();
+        });
+
+        function GetRightModels() {
+            var id = $('#carMake').val();        
+            $.ajax({
+                type: "GET",
+                url: 'http://localhost:51261/api/getModelNames?id=' + id,
+                success: function (data) {
+                    var s;
+                    for (var i = 0; i < data.length; i++) {
+                        s += '<option value="' + data[i].CarModelId + '">' + data[i].ModelName + '</option>';
+                    }
+                    $("#model").html(s);
+                }
+            });
+        }
+
+    </script>
+}
+

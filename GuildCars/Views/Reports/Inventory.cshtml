@@ -1,0 +1,87 @@
+﻿@model GuildCars.Models.InventoryReportViewModel
+
+@{
+    ViewBag.Title = "Inventory";
+}
+
+<div class="row">
+    <div class="col-xs-12">
+        <h2>Inventory Report</h2>
+    </div>
+</div>
+<div class="container">
+    <div class="col-xs-12">
+        <h5>New Vehicles</h5>
+        <table class="table table-bordered table-striped" style="width:600px;border:1px solid black">
+            <thead>
+                <tr>
+                    <th>
+                        Year
+                    </th>
+                    <th>
+                        Make
+                    </th>
+                    <th>
+                        Model
+                    </th>
+                    <th>
+                        Count
+                    </th>
+                    <th>
+                        Stock Value
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var i in Model.NewInventory)
+                    {
+                        <tr>
+                            <td>@i.Year</td>
+                            <td>@i.CarMake</td>
+                            <td>@i.CarModel</td>
+                            <td>@i.Count</td>
+                            <td>@string.Format("{0:C}", i.StockValue)</td>
+                        </tr>
+                    }
+            </tbody>
+        </table>
+    </div>
+    <br />
+    <div class="col-xs-12">
+        <h5>Used Vehicles</h5>
+        <table class="table table-bordered table-striped" style="width:600px">
+            <thead>
+                <tr>
+                    <th>
+                        Year
+                    </th>
+                    <th>
+                        Make
+                    </th>
+                    <th>
+                        Model
+                    </th>
+                    <th>
+                        Count
+                    </th>
+                    <th>
+                        Stock Value
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var i in Model.UsedInventory)
+                {
+                    <tr>
+                        <td>@i.Year</td>
+                        <td>@i.CarMake</td>
+                        <td>@i.CarModel</td>
+                        <td>@i.Count</td>
+                        <td>@string.Format("{0:C}", i.StockValue)</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+

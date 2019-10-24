@@ -1,0 +1,113 @@
+﻿@model GuildCars.Models.Tables.CarView
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+<div class="row">
+    <div class="col-xs-12">
+        <h2>Vehicle Details</h2>
+    </div>
+</div>
+<div class="row" id="detailsDiv">
+    <table width="1500">
+        <tbody>
+            <tr>
+                <td>
+                    <p>
+                        <strong>@Model.Year @Model.MakeName @Model.ModelName</strong>
+                    </p>
+                    <p>
+                        <img class="d-inline-block align-top" src="@Url.Content("~/Images/Cars/" + Model.ImageFileName)" padding-right:20px; padding-bottom: 20px" width="220" height="160" style="border:solid 1px #BD2929">
+                    </p>
+                </td>
+                <td>
+                    <p>
+                        <strong>Body Style: </strong>@Model.BodyStyleName
+                    </p>
+                    <p>
+                        <strong>Trans: </strong>@Model.TransmissionName
+                    </p>
+                    <p>
+                        <strong>Color: </strong>@Model.ColorName
+                    </p><br />
+
+                </td>
+                <td style="padding-bottom:2.5%; padding-left:3%">
+                    <p>
+                        <strong>Interior: </strong>@Model.InteriorName
+                    </p>
+                    <p>
+                        <strong>Mileage: </strong>@if (Model.Mileage <= 10000)
+                        {
+                            <text>New</text>
+                        }
+                        else
+                        {
+                            <text>@Model.Mileage</text>
+                        }
+                    </p>
+                    <p>
+                        <strong>VIN #: </strong>@Model.VINnumber
+                    </p>
+                </td>
+                <td style="padding-bottom:6.2%">
+                    <p>
+                        <strong>Sale Price: </strong>@string.Format("{0:C}", Model.SalePrice)
+                    </p>
+                    <p>
+                        <strong>MSRP: </strong>@string.Format("{0:C}", Model.MSRP)
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td colspan="4">
+                    <p>
+                        <strong>Description:  </strong> @Model.CarDescription
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                @if (Model.IsPurchased == false)
+                {
+                    <td colspan="4" style="text-align:right">
+                        <button button onclick="Contact()" id="btnContact" class="btn btn-primary">
+                            Contact Us
+                        </button>
+                    </td>
+                }
+                else
+                {
+                    <td colspan="4" style="text-align:right">
+                        <button id="btnSold" class="btn btn-primary">
+                            Unavailable - Sold
+                        </button>
+                    </td>
+                }
+
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+@section Scripts
+    {
+<script>
+            $(document).ready(function () {
+                $("#detailsDiv").submit(function (e) {
+                    Contact();
+                    return false;
+                });
+    });
+
+            function Contact() {
+                sessionStorage.setItem("vin", '@Model.VINnumber');
+                location.replace("@Url.Action("Contact", "Home")");
+            }
+
+</script>
+    }

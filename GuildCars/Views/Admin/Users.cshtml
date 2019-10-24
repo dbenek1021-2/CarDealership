@@ -1,0 +1,58 @@
+﻿@model IEnumerable<GuildCars.Models.Tables.User>
+
+@{
+    ViewBag.Title = "Users";
+}
+
+<div class="row">
+    <div class="col-xs-12">
+        <h2>Users</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        @Html.ActionLink("Add a new user", "AddUser", "Admin")
+        @if (Model.Any())
+        {
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>
+                            Last Name
+                        </th>
+                        <th>
+                            First Name
+                        </th>
+                        <th>
+                            Email
+                        </th>
+                        <th>
+                            Role
+                        </th>
+                        <th>
+
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var user in Model)
+                    {
+                        @Html.HiddenFor(modelUser => user.UserId)
+                        <tr>
+                            <td>@Html.DisplayFor(modelUser => user.LastName)</td>
+                            <td>@Html.DisplayFor(modelUser => user.FirstName)</td>
+                            <td>@Html.DisplayFor(modelUser => user.Email)</td>
+                            <td>@Html.DisplayFor(modelUser => user.Role)</td>
+                            <td>@Html.ActionLink("edit", "EditUser", "Admin", new { id = user.UserId }, null)</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p>You do not have any users.</p>
+        }
+    </div>
+</div>
+

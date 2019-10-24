@@ -1,0 +1,6 @@
+C:\Users\DaniB\Documents\SoftwareGuild\online-net-dbenek1021\Classwork\CarDealership\GuildCars.Models\bin\Debug\GuildCars.Models.dll
+C:\Users\DaniB\Documents\SoftwareGuild\online-net-dbenek1021\Classwork\CarDealership\GuildCars.Models\bin\Debug\GuildCars.Models.pdb
+C:\Users\DaniB\Documents\SoftwareGuild\online-net-dbenek1021\Classwork\CarDealership\GuildCars.Models\obj\Debug\GuildCars.Models.csprojAssemblyReference.cache
+C:\Users\DaniB\Documents\SoftwareGuild\online-net-dbenek1021\Classwork\CarDealership\GuildCars.Models\obj\Debug\GuildCars.Models.csproj.CoreCompileInputs.cache
+C:\Users\DaniB\Documents\SoftwareGuild\online-net-dbenek1021\Classwork\CarDealership\GuildCars.Models\obj\Debug\GuildCars.Models.dll
+C:\Users\DaniB\Documents\SoftwareGuild\online-net-dbenek1021\Classwork\CarDealership\GuildCars.Models\obj\Debug\GuildCars.Models.pdb

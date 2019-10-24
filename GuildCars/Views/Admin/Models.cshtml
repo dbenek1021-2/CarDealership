@@ -1,0 +1,76 @@
+﻿@model GuildCars.Models.AddCarModelViewModel
+
+@{
+    ViewBag.Title = "Models";
+}
+
+
+<div class="row">
+    <div class="col-xs-12">
+        <h2>Models</h2>
+    </div>
+</div>
+
+@using (Html.BeginForm("Models", "Admin", FormMethod.Post, new { @class = "form-inline" }))
+{
+    <div class="row">
+        <div class="form-inline col-md-12" id="adminAddMakeModelDiv">
+            <div class="form-group">
+                <label><strong>New Model</strong>&nbsp; &nbsp; &nbsp;</label>
+            </div>
+            <div class="form-group">
+                <input id="modelName" name="modelName" type="text" placeholder="" class="form-control input-md" required="">
+            </div>
+            <div class="form-group">
+                <label><strong>Make</strong>&nbsp; &nbsp; &nbsp;</label>
+                <select id="makeid" name="makeid" class="form-control">
+                    @foreach (var make in Model.CarMakeList)
+                    {
+                        <option value="@make.CarMakeId">@make.MakeName</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group"></div>
+            <div class="form-group">
+                <input type="submit" name="btnSubmit" value="Save" class="btn btn-primary" onclick="return confirm('Are you sure you want to add this Model? This action can not be undone.');" />
+            </div>
+            <div>
+                @Html.ValidationMessage("error")
+            </div>
+        </div>
+        <div class="col-md-6">
+            <br />
+            <table class="table table-bordered table-striped" id="modelsTable">
+                <thead>
+                    <tr>
+                        <th>
+                            Make
+                        </th>
+                        <th>
+                            Model
+                        </th>
+                        <th>
+                            Date Added
+                        </th>
+                        <th>
+                            User
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var model in Model.CarModelViewList)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelUser => model.CarMakeName)</td>
+                            <td>@Html.DisplayFor(modelUser => model.ModelName)</td>
+                            <td>@Convert.ToString(string.Format("{0:MM/dd/yyyy}", model.DateAdded))</td>
+                            <td>@Html.DisplayFor(modelUser => model.User)</td>
+                            @Html.HiddenFor(modelUser => model.CarMakeName)
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+}
+

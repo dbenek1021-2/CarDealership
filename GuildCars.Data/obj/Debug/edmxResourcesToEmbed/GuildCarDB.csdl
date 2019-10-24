@@ -1,0 +1,1169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GuildCarsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="C__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaim">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogin">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+    <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+    <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+  </EntityType>
+  <EntityType Name="BodyStyle">
+    <Key>
+      <PropertyRef Name="BodyStyleId" />
+    </Key>
+    <Property Name="BodyStyleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BodyStyleName" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Cars" Relationship="GuildCarsModel.FK__Car__BodyStyleId__5C1947CA" FromRole="BodyStyle" ToRole="Car" />
+  </EntityType>
+  <EntityType Name="CarType">
+    <Key>
+      <PropertyRef Name="TypeId" />
+    </Key>
+    <Property Name="TypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TypeName" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Cars" Relationship="GuildCarsModel.FK__Car__TypeId__5B252391" FromRole="CarType" ToRole="Car" />
+  </EntityType>
+  <EntityType Name="Color">
+    <Key>
+      <PropertyRef Name="ColorId" />
+    </Key>
+    <Property Name="ColorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ColorName" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Cars" Relationship="GuildCarsModel.FK__Car__ColorId__5E01903C" FromRole="Color" ToRole="Car" />
+  </EntityType>
+  <EntityType Name="ContactU">
+    <Key>
+      <PropertyRef Name="ContactUsId" />
+    </Key>
+    <Property Name="ContactUsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Message" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="CustomerPurchase">
+    <Key>
+      <PropertyRef Name="CustomerPurchaseId" />
+    </Key>
+    <Property Name="CustomerPurchaseId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerId" Type="Int32" Nullable="false" />
+    <Property Name="PurchaseId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Customer" Relationship="GuildCarsModel.FK__CustomerP__Custo__6A86975B" FromRole="CustomerPurchase" ToRole="Customer" />
+    <NavigationProperty Name="Purchase" Relationship="GuildCarsModel.FK__CustomerP__Purch__17AF0EE4" FromRole="CustomerPurchase" ToRole="Purchase" />
+  </EntityType>
+  <EntityType Name="Interior">
+    <Key>
+      <PropertyRef Name="InteriorId" />
+    </Key>
+    <Property Name="InteriorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="InteriorName" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Cars" Relationship="GuildCarsModel.FK__Car__InteriorId__5EF5B475" FromRole="Interior" ToRole="Car" />
+  </EntityType>
+  <EntityType Name="Special">
+    <Key>
+      <PropertyRef Name="SpecialId" />
+    </Key>
+    <Property Name="SpecialId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SpecialTitle" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SpecialDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="State">
+    <Key>
+      <PropertyRef Name="StateId" />
+    </Key>
+    <Property Name="StateId" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="StateName" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Customers" Relationship="GuildCarsModel.FK__Customer__StateI__67AA2AB0" FromRole="State" ToRole="Customer" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Transmission">
+    <Key>
+      <PropertyRef Name="TransmissionId" />
+    </Key>
+    <Property Name="TransmissionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TransmissionName" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Cars" Relationship="GuildCarsModel.FK__Car__Transmissio__5D0D6C03" FromRole="Transmission" ToRole="Car" />
+  </EntityType>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AspNetUserRoles">
+    <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="GuildCarsEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+    <EntitySet Name="BodyStyles" EntityType="Self.BodyStyle" />
+    <EntitySet Name="CarTypes" EntityType="Self.CarType" />
+    <EntitySet Name="Colors" EntityType="Self.Color" />
+    <EntitySet Name="ContactUs" EntityType="Self.ContactU" />
+    <EntitySet Name="CustomerPurchases" EntityType="Self.CustomerPurchase" />
+    <EntitySet Name="Interiors" EntityType="Self.Interior" />
+    <EntitySet Name="Specials" EntityType="Self.Special" />
+    <EntitySet Name="States" EntityType="Self.State" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="Transmissions" EntityType="Self.Transmission" />
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+    </AssociationSet>
+    <FunctionImport Name="AddRoleToUser">
+      <Parameter Name="UserId" Mode="In" Type="String" />
+      <Parameter Name="RoleId" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="AddSpecial">
+      <Parameter Name="SpecialTitle" Mode="In" Type="String" />
+      <Parameter Name="SpecialDescription" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ChangePassword">
+      <Parameter Name="Id" Mode="In" Type="String" />
+      <Parameter Name="PasswordHash" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="DbReset" />
+    <FunctionImport Name="DeleteSpecial">
+      <Parameter Name="SpecialId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DeleteUser">
+      <Parameter Name="Id" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="DeleteVehicle">
+      <Parameter Name="CarId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="EditUser">
+      <Parameter Name="Id" Mode="In" Type="String" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="EmailConfirmed" Mode="In" Type="Boolean" />
+      <Parameter Name="PasswordHash" Mode="In" Type="String" />
+      <Parameter Name="SecurityStamp" Mode="In" Type="String" />
+      <Parameter Name="PhoneNumber" Mode="In" Type="String" />
+      <Parameter Name="PhoneNumberConfirmed" Mode="In" Type="Boolean" />
+      <Parameter Name="TwoFactorEnabled" Mode="In" Type="Boolean" />
+      <Parameter Name="LockoutEndDateUtc" Mode="In" Type="DateTime" />
+      <Parameter Name="LockoutEnabled" Mode="In" Type="Boolean" />
+      <Parameter Name="AccessFailedCount" Mode="In" Type="Int32" />
+      <Parameter Name="UserName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetAllByMake" ReturnType="Collection(GuildCarsModel.GetAllByMake_Result)">
+      <Parameter Name="MakeName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetAllByModel" EntitySet="CarModels" ReturnType="Collection(GuildCarsModel.CarModel)">
+      <Parameter Name="ModelName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetAllByYear" ReturnType="Collection(GuildCarsModel.GetAllByYear_Result)">
+      <Parameter Name="Year" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetAllSpecials" EntitySet="Specials" ReturnType="Collection(GuildCarsModel.Special)" />
+    <FunctionImport Name="HomePageFS" ReturnType="Collection(GuildCarsModel.HomePageFS_Result)" />
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(GuildCarsModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(GuildCarsModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <FunctionImport Name="SubmitContactUs">
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="Phone" Mode="In" Type="String" />
+      <Parameter Name="Message" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetAllFeatured" ReturnType="Collection(GuildCarsModel.GetAllFeatured_Result)" />
+    <EntitySet Name="PurchaseTypes" EntityType="GuildCarsModel.PurchaseType" />
+    <FunctionImport Name="GetPurchaseType" EntitySet="PurchaseTypes" ReturnType="Collection(GuildCarsModel.PurchaseType)" />
+    <FunctionImport Name="GetStates" ReturnType="Collection(GuildCarsModel.GetStates_Result)" />
+    <EntitySet Name="Customers" EntityType="GuildCarsModel.Customer" />
+    <AssociationSet Name="FK__Customer__StateI__67AA2AB0" Association="GuildCarsModel.FK__Customer__StateI__67AA2AB0">
+      <End Role="State" EntitySet="States" />
+      <End Role="Customer" EntitySet="Customers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CustomerP__Custo__6A86975B" Association="GuildCarsModel.FK__CustomerP__Custo__6A86975B">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="CustomerPurchase" EntitySet="CustomerPurchases" />
+    </AssociationSet>
+    <FunctionImport Name="GetBodyStyle" EntitySet="BodyStyles" ReturnType="Collection(GuildCarsModel.BodyStyle)" />
+    <FunctionImport Name="GetCarType" EntitySet="CarTypes" ReturnType="Collection(GuildCarsModel.CarType)" />
+    <FunctionImport Name="GetColor" EntitySet="Colors" ReturnType="Collection(GuildCarsModel.Color)" />
+    <FunctionImport Name="GetInterior" EntitySet="Interiors" ReturnType="Collection(GuildCarsModel.Interior)" />
+    <FunctionImport Name="GetTransmission" ReturnType="Collection(GuildCarsModel.GetTransmission_Result)" />
+    <FunctionImport Name="AddVehicleMake">
+      <Parameter Name="MakeName" Mode="In" Type="String" />
+      <Parameter Name="User" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="AddVehicle" ReturnType="Collection(Decimal)">
+      <Parameter Name="Year" Mode="In" Type="Int32" />
+      <Parameter Name="CarMakeId" Mode="In" Type="Int32" />
+      <Parameter Name="CarModelId" Mode="In" Type="Int32" />
+      <Parameter Name="TypeId" Mode="In" Type="Int32" />
+      <Parameter Name="BodyStyleId" Mode="In" Type="Int32" />
+      <Parameter Name="TransmissionId" Mode="In" Type="Int32" />
+      <Parameter Name="ColorId" Mode="In" Type="Int32" />
+      <Parameter Name="InteriorId" Mode="In" Type="Int32" />
+      <Parameter Name="Mileage" Mode="In" Type="Decimal" />
+      <Parameter Name="VINnumber" Mode="In" Type="String" />
+      <Parameter Name="SalePrice" Mode="In" Type="Decimal" />
+      <Parameter Name="MSRP" Mode="In" Type="Decimal" />
+      <Parameter Name="CarDescription" Mode="In" Type="String" />
+      <Parameter Name="ImageFileName" Mode="In" Type="String" />
+      <Parameter Name="IsFeatured" Mode="In" Type="Boolean" />
+      <Parameter Name="IsPurchased" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="SaveImageToCar">
+      <Parameter Name="CarId" Mode="In" Type="Int32" />
+      <Parameter Name="ImageFileName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="EditVehicle">
+      <Parameter Name="CarId" Mode="In" Type="Int32" />
+      <Parameter Name="Year" Mode="In" Type="Int32" />
+      <Parameter Name="CarMakeId" Mode="In" Type="Int32" />
+      <Parameter Name="CarModelId" Mode="In" Type="Int32" />
+      <Parameter Name="TypeId" Mode="In" Type="Int32" />
+      <Parameter Name="BodyStyleId" Mode="In" Type="Int32" />
+      <Parameter Name="TransmissionId" Mode="In" Type="Int32" />
+      <Parameter Name="ColorId" Mode="In" Type="Int32" />
+      <Parameter Name="InteriorId" Mode="In" Type="Int32" />
+      <Parameter Name="Mileage" Mode="In" Type="Decimal" />
+      <Parameter Name="VINnumber" Mode="In" Type="String" />
+      <Parameter Name="SalePrice" Mode="In" Type="Decimal" />
+      <Parameter Name="MSRP" Mode="In" Type="Decimal" />
+      <Parameter Name="CarDescription" Mode="In" Type="String" />
+      <Parameter Name="ImageFileName" Mode="In" Type="String" />
+      <Parameter Name="IsFeatured" Mode="In" Type="Boolean" />
+      <Parameter Name="IsPurchased" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="GetSpecialById" EntitySet="Specials" ReturnType="Collection(GuildCarsModel.Special)">
+      <Parameter Name="SpecialId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetCarMake" EntitySet="CarMakes" ReturnType="Collection(GuildCarsModel.CarMake)" />
+    <FunctionImport Name="GetCarModel" EntitySet="CarModels" ReturnType="Collection(GuildCarsModel.CarModel)" />
+    <FunctionImport Name="GetAllByCarId" EntitySet="Cars" ReturnType="Collection(GuildCarsModel.Car)">
+      <Parameter Name="CarId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="CarMakes" EntityType="GuildCarsModel.CarMake" />
+    <EntitySet Name="CarModels" EntityType="GuildCarsModel.CarModel" />
+    <AssociationSet Name="FK__CarModel__CarMak__4BE2E001" Association="GuildCarsModel.FK__CarModel__CarMak__4BE2E001">
+      <End Role="CarMake" EntitySet="CarMakes" />
+      <End Role="CarModel" EntitySet="CarModels" />
+    </AssociationSet>
+    <EntitySet Name="Cars" EntityType="GuildCarsModel.Car" />
+    <AssociationSet Name="FK__Car__BodyStyleId__5C1947CA" Association="GuildCarsModel.FK__Car__BodyStyleId__5C1947CA">
+      <End Role="BodyStyle" EntitySet="BodyStyles" />
+      <End Role="Car" EntitySet="Cars" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Car__CarMakeId__593CDB1F" Association="GuildCarsModel.FK__Car__CarMakeId__593CDB1F">
+      <End Role="CarMake" EntitySet="CarMakes" />
+      <End Role="Car" EntitySet="Cars" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Car__CarModelId__5A30FF58" Association="GuildCarsModel.FK__Car__CarModelId__5A30FF58">
+      <End Role="CarModel" EntitySet="CarModels" />
+      <End Role="Car" EntitySet="Cars" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Car__ColorId__5E01903C" Association="GuildCarsModel.FK__Car__ColorId__5E01903C">
+      <End Role="Color" EntitySet="Colors" />
+      <End Role="Car" EntitySet="Cars" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Car__InteriorId__5EF5B475" Association="GuildCarsModel.FK__Car__InteriorId__5EF5B475">
+      <End Role="Interior" EntitySet="Interiors" />
+      <End Role="Car" EntitySet="Cars" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Car__Transmissio__5D0D6C03" Association="GuildCarsModel.FK__Car__Transmissio__5D0D6C03">
+      <End Role="Transmission" EntitySet="Transmissions" />
+      <End Role="Car" EntitySet="Cars" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Car__TypeId__5B252391" Association="GuildCarsModel.FK__Car__TypeId__5B252391">
+      <End Role="CarType" EntitySet="CarTypes" />
+      <End Role="Car" EntitySet="Cars" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Customer__CarId__687F1EAF" Association="GuildCarsModel.FK__Customer__CarId__687F1EAF">
+      <End Role="Car" EntitySet="Cars" />
+      <End Role="Customer" EntitySet="Customers" />
+    </AssociationSet>
+    <FunctionImport Name="GetNewInventory" ReturnType="Collection(GuildCarsModel.GetNewInventory_Result1)" />
+    <FunctionImport Name="GetUsedInventory" ReturnType="Collection(GuildCarsModel.GetUsedInventory_Result1)" />
+    <EntitySet Name="Purchases" EntityType="GuildCarsModel.Purchase" />
+    <AssociationSet Name="FK__Purchase__CarId__0E25A4AA" Association="GuildCarsModel.FK__Purchase__CarId__0E25A4AA">
+      <End Role="Car" EntitySet="Cars" />
+      <End Role="Purchase" EntitySet="Purchases" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CustomerP__Purch__17AF0EE4" Association="GuildCarsModel.FK__CustomerP__Purch__17AF0EE4">
+      <End Role="Purchase" EntitySet="Purchases" />
+      <End Role="CustomerPurchase" EntitySet="CustomerPurchases" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Purchase__Purcha__0F19C8E3" Association="GuildCarsModel.FK__Purchase__Purcha__0F19C8E3">
+      <End Role="PurchaseType" EntitySet="PurchaseTypes" />
+      <End Role="Purchase" EntitySet="Purchases" />
+    </AssociationSet>
+    <FunctionImport Name="NewInventoryReport" ReturnType="Collection(GuildCarsModel.NewInventoryReport_Result)" />
+    <FunctionImport Name="UsedInventoryReport" ReturnType="Collection(GuildCarsModel.UsedInventoryReport_Result)" />
+    <FunctionImport Name="SalesReport" ReturnType="Collection(GuildCarsModel.SalesReport_Result)">
+      <Parameter Name="User" Mode="In" Type="String" />
+      <Parameter Name="StartDate" Mode="In" Type="DateTime" />
+      <Parameter Name="EndDate" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="GetCarModelsByMakeId" ReturnType="Collection(GuildCarsModel.GetCarModelsByMakeId_Result)">
+      <Parameter Name="CarMakeId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetAllUsers" ReturnType="Collection(GuildCarsModel.GetAllUsers_Result)" />
+    <FunctionImport Name="GetAllRoles" EntitySet="AspNetRoles" ReturnType="Collection(GuildCarsModel.AspNetRole)" />
+    <FunctionImport Name="AddUser" ReturnType="Collection(String)">
+      <Parameter Name="Id" Mode="In" Type="String" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="EmailConfirmed" Mode="In" Type="Boolean" />
+      <Parameter Name="PasswordHash" Mode="In" Type="String" />
+      <Parameter Name="SecurityStamp" Mode="In" Type="String" />
+      <Parameter Name="PhoneNumber" Mode="In" Type="String" />
+      <Parameter Name="PhoneNumberConfirmed" Mode="In" Type="Boolean" />
+      <Parameter Name="TwoFactorEnabled" Mode="In" Type="Boolean" />
+      <Parameter Name="LockoutEndDateUtc" Mode="In" Type="DateTime" />
+      <Parameter Name="LockoutEnabled" Mode="In" Type="Boolean" />
+      <Parameter Name="AccessFailedCount" Mode="In" Type="Int32" />
+      <Parameter Name="UserName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetUserById" ReturnType="Collection(GuildCarsModel.GetUserById_Result3)">
+      <Parameter Name="Id" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="PurchaseVehicle">
+      <Parameter Name="CarId" Mode="In" Type="Int32" />
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="Address1" Mode="In" Type="String" />
+      <Parameter Name="Address2" Mode="In" Type="String" />
+      <Parameter Name="City" Mode="In" Type="String" />
+      <Parameter Name="StateId" Mode="In" Type="String" />
+      <Parameter Name="ZipCode" Mode="In" Type="Int32" />
+      <Parameter Name="Phone" Mode="In" Type="String" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="IsPurchased" Mode="In" Type="Boolean" />
+      <Parameter Name="PurchasePrice" Mode="In" Type="Decimal" />
+      <Parameter Name="PurchaseTypeId" Mode="In" Type="Int32" />
+      <Parameter Name="SalesPerson" Mode="In" Type="String" />
+      <Parameter Name="DatePurchased" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="AddVehicleModel">
+      <Parameter Name="ModelName" Mode="In" Type="String" />
+      <Parameter Name="MakeId" Mode="In" Type="Int32" />
+      <Parameter Name="User" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="AllSalesReports" ReturnType="Collection(GuildCarsModel.AllSalesReports_Result)" />
+    <FunctionImport Name="SalesReportByDate" ReturnType="Collection(GuildCarsModel.SalesReportByDate_Result)">
+      <Parameter Name="StartDate" Mode="In" Type="DateTime" />
+      <Parameter Name="EndDate" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="GetUserByName" ReturnType="Collection(GuildCarsModel.GetUserByName_Result)">
+      <Parameter Name="UserName" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="GetAllByMake_Result">
+    <Property Type="Int32" Name="CarId" Nullable="false" />
+    <Property Type="Int32" Name="Year" Nullable="false" />
+    <Property Type="Int32" Name="CarMakeId" Nullable="true" />
+    <Property Type="String" Name="MakeName" Nullable="true" MaxLength="60" />
+    <Property Type="Int32" Name="CarModelId" Nullable="true" />
+    <Property Type="String" Name="ModelName" Nullable="true" MaxLength="60" />
+    <Property Type="Int32" Name="ColorId" Nullable="false" />
+    <Property Type="Int32" Name="InteriorId" Nullable="false" />
+    <Property Type="Decimal" Name="Mileage" Nullable="false" Precision="10" Scale="2" />
+    <Property Type="Decimal" Name="MSRP" Nullable="false" Precision="8" Scale="0" />
+    <Property Type="Decimal" Name="SalePrice" Nullable="false" Precision="8" Scale="0" />
+    <Property Type="String" Name="VINnumber" Nullable="false" MaxLength="40" />
+    <Property Type="String" Name="ImageFileName" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="IsFeatured" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GetAllByModel_Result">
+    <Property Type="Int32" Name="CarId" Nullable="false" />
+    <Property Type="Int32" Name="Year" Nullable="false" />
+    <Property Type="Int32" Name="CarMakeId" Nullable="true" />
+    <Property Type="String" Name="MakeName" Nullable="true" MaxLength="60" />
+    <Property Type="Int32" Name="CarModelId" Nullable="true" />
+    <Property Type="String" Name="ModelName" Nullable="true" MaxLength="60" />
+    <Property Type="Int32" Name="ColorId" Nullable="false" />
+    <Property Type="Int32" Name="InteriorId" Nullable="false" />
+    <Property Type="Decimal" Name="Mileage" Nullable="false" Precision="10" Scale="2" />
+    <Property Type="Decimal" Name="MSRP" Nullable="false" Precision="8" Scale="0" />
+    <Property Type="Decimal" Name="SalePrice" Nullable="false" Precision="8" Scale="0" />
+    <Property Type="String" Name="VINnumber" Nullable="false" MaxLength="40" />
+    <Property Type="String" Name="ImageFileName" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="IsFeatured" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GetAllByYear_Result">
+    <Property Type="Int32" Name="CarId" Nullable="false" />
+    <Property Type="Int32" Name="Year" Nullable="false" />
+    <Property Type="Int32" Name="CarMakeId" Nullable="true" />
+    <Property Type="String" Name="MakeName" Nullable="true" MaxLength="60" />
+    <Property Type="Int32" Name="CarModelId" Nullable="true" />
+    <Property Type="String" Name="ModelName" Nullable="true" MaxLength="60" />
+    <Property Type="Int32" Name="ColorId" Nullable="false" />
+    <Property Type="Int32" Name="InteriorId" Nullable="false" />
+    <Property Type="Decimal" Name="Mileage" Nullable="false" Precision="10" Scale="2" />
+    <Property Type="Decimal" Name="MSRP" Nullable="false" Precision="8" Scale="0" />
+    <Property Type="Decimal" Name="SalePrice" Nullable="false" Precision="8" Scale="0" />
+    <Property Type="String" Name="VINnumber" Nullable="false" MaxLength="40" />
+    <Property Type="String" Name="ImageFileName" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="IsFeatured" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GetAllSpecials_Result">
+    <Property Type="Int32" Name="SpecialId" Nullable="false" />
+    <Property Type="String" Name="SpecialTitle" Nullable="false" MaxLength="40" />
+    <Property Type="String" Name="SpecialDescription" Nullable="false" MaxLength="500" />
+  </ComplexType>
+  <ComplexType Name="HomePageFS_Result">
+    <Property Type="Int32" Name="CarId" Nullable="false" />
+    <Property Type="Int32" Name="Year" Nullable="false" />
+    <Property Type="Int32" Name="CarMakeId" Nullable="true" />
+    <Property Type="String" Name="MakeName" Nullable="true" MaxLength="60" />
+    <Property Type="Int32" Name="CarModelId" Nullable="true" />
+    <Property Type="String" Name="ModelName" Nullable="true" MaxLength="60" />
+    <Property Type="Int32" Name="ColorId" Nullable="false" />
+    <Property Type="Int32" Name="InteriorId" Nullable="false" />
+    <Property Type="Decimal" Name="Mileage" Nullable="false" Precision="10" Scale="2" />
+    <Property Type="Decimal" Name="MSRP" Nullable="false" Precision="8" Scale="0" />
+    <Property Type="Decimal" Name="SalePrice" Nullable="false" Precision="8" Scale="0" />
+    <Property Type="String" Name="VINnumber" Nullable="false" MaxLength="40" />
+    <Property Type="String" Name="ImageFileName" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="IsFeatured" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="Featured">
+    <Property Type="Int32" Name="CarId" Nullable="false" />
+    <Property Type="Int32" Name="Year" Nullable="false" />
+    <Property Type="Int32" Name="CarMakeId" Nullable="true" />
+    <Property Type="String" Name="MakeName" Nullable="true" MaxLength="60" />
+    <Property Type="Int32" Name="CarModelId" Nullable="true" />
+    <Property Type="String" Name="ModelName" Nullable="true" MaxLength="60" />
+    <Property Type="Int32" Name="ColorId" Nullable="false" />
+    <Property Type="Int32" Name="InteriorId" Nullable="false" />
+    <Property Type="Decimal" Name="Mileage" Nullable="false" Precision="10" Scale="2" />
+    <Property Type="Decimal" Name="MSRP" Nullable="false" Precision="8" Scale="0" />
+    <Property Type="Decimal" Name="SalePrice" Nullable="false" Precision="8" Scale="0" />
+    <Property Type="String" Name="VINnumber" Nullable="false" MaxLength="40" />
+    <Property Type="String" Name="ImageFileName" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="IsFeatured" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="Specials">
+    <Property Type="Int32" Name="SpecialId" Nullable="false" />
+    <Property Type="String" Name="SpecialTitle" Nullable="false" MaxLength="40" />
+    <Property Type="String" Name="SpecialDescription" Nullable="false" MaxLength="500" />
+  </ComplexType>
+  <ComplexType Name="GetAllByCarId_Result">
+    <Property Type="Int32" Name="CarId" Nullable="false" />
+    <Property Type="Int32" Name="Year" Nullable="false" />
+    <Property Type="Int32" Name="CarMakeId" Nullable="true" />
+    <Property Type="String" Name="MakeName" Nullable="true" MaxLength="60" />
+    <Property Type="Int32" Name="CarModelId" Nullable="true" />
+    <Property Type="String" Name="ModelName" Nullable="true" MaxLength="60" />
+    <Property Type="Int32" Name="TypeId" Nullable="true" />
+    <Property Type="String" Name="TypeName" Nullable="true" MaxLength="40" />
+    <Property Type="Int32" Name="BodyStyleId" Nullable="true" />
+    <Property Type="String" Name="BodyStyleName" Nullable="true" MaxLength="40" />
+    <Property Type="Int32" Name="TransmissionId" Nullable="true" />
+    <Property Type="String" Name="TransmissionName" Nullable="true" MaxLength="40" />
+    <Property Type="Int32" Name="ColorId" Nullable="true" />
+    <Property Type="String" Name="ColorName" Nullable="true" MaxLength="40" />
+    <Property Type="Int32" Name="InteriorId" Nullable="true" />
+    <Property Type="String" Name="InteriorName" Nullable="true" MaxLength="40" />
+    <Property Type="Decimal" Name="Mileage" Nullable="false" Precision="10" Scale="2" />
+    <Property Type="String" Name="VINnumber" Nullable="false" MaxLength="40" />
+    <Property Type="Decimal" Name="SalePrice" Nullable="false" Precision="8" Scale="0" />
+    <Property Type="Decimal" Name="MSRP" Nullable="false" Precision="8" Scale="0" />
+    <Property Type="String" Name="CarDescription" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="ImageFileName" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="IsFeatured" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GetAllFeatured_Result">
+    <Property Type="Int32" Name="CarId" Nullable="false" />
+    <Property Type="Int32" Name="Year" Nullable="false" />
+    <Property Type="Int32" Name="CarMakeId" Nullable="true" />
+    <Property Type="String" Name="MakeName" Nullable="true" MaxLength="60" />
+    <Property Type="Int32" Name="CarModelId" Nullable="true" />
+    <Property Type="String" Name="ModelName" Nullable="true" MaxLength="60" />
+    <Property Type="Int32" Name="TypeId" Nullable="true" />
+    <Property Type="String" Name="TypeName" Nullable="true" MaxLength="40" />
+    <Property Type="Int32" Name="BodyStyleId" Nullable="true" />
+    <Property Type="String" Name="BodyStyleName" Nullable="true" MaxLength="40" />
+    <Property Type="Int32" Name="TransmissionId" Nullable="true" />
+    <Property Type="String" Name="TransmissionName" Nullable="true" MaxLength="40" />
+    <Property Type="Int32" Name="ColorId" Nullable="true" />
+    <Property Type="String" Name="ColorName" Nullable="true" MaxLength="40" />
+    <Property Type="Int32" Name="InteriorId" Nullable="true" />
+    <Property Type="String" Name="InteriorName" Nullable="true" MaxLength="40" />
+    <Property Type="Decimal" Name="Mileage" Nullable="false" Precision="10" Scale="2" />
+    <Property Type="String" Name="VINnumber" Nullable="false" MaxLength="40" />
+    <Property Type="Decimal" Name="SalePrice" Nullable="false" Precision="8" Scale="0" />
+    <Property Type="Decimal" Name="MSRP" Nullable="false" Precision="8" Scale="0" />
+    <Property Type="String" Name="CarDescription" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="ImageFileName" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="IsFeatured" Nullable="true" />
+    <Property Type="Boolean" Name="IsPurchased" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="PurchaseType">
+    <Key>
+      <PropertyRef Name="PurchaseTypeId" />
+    </Key>
+    <Property Name="PurchaseTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PurchaseTypeName" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Purchases" Relationship="GuildCarsModel.FK__Purchase__Purcha__0F19C8E3" FromRole="PurchaseType" ToRole="Purchase" />
+  </EntityType>
+  <ComplexType Name="GetPurchaseType_Result">
+    <Property Type="Int32" Name="PurchaseTypeId" Nullable="false" />
+    <Property Type="String" Name="PurchaseTypeName" Nullable="false" MaxLength="40" />
+  </ComplexType>
+  <ComplexType Name="GetStates_Result">
+    <Property Type="String" Name="StateId" Nullable="false" MaxLength="2" />
+    <Property Type="String" Name="StateName" Nullable="false" MaxLength="15" />
+  </ComplexType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="CustomerId" />
+    </Key>
+    <Property Name="CustomerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CarId" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="75" FixedLength="false" Unicode="true" />
+    <Property Name="Address1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Address2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="StateId" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="ZipCode" Type="Int32" Nullable="false" />
+    <Property Name="Phone" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="State" Relationship="GuildCarsModel.FK__Customer__StateI__67AA2AB0" FromRole="Customer" ToRole="State" />
+    <NavigationProperty Name="CustomerPurchases" Relationship="GuildCarsModel.FK__CustomerP__Custo__6A86975B" FromRole="Customer" ToRole="CustomerPurchase" />
+    <NavigationProperty Name="Car" Relationship="GuildCarsModel.FK__Customer__CarId__687F1EAF" FromRole="Customer" ToRole="Car" />
+  </EntityType>
+  <Association Name="FK__Customer__StateI__67AA2AB0">
+    <End Type="GuildCarsModel.State" Role="State" Multiplicity="1" />
+    <End Type="GuildCarsModel.Customer" Role="Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="State">
+        <PropertyRef Name="StateId" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="StateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CustomerP__Custo__6A86975B">
+    <End Type="GuildCarsModel.Customer" Role="Customer" Multiplicity="1" />
+    <End Type="GuildCarsModel.CustomerPurchase" Role="CustomerPurchase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="CustomerId" />
+      </Principal>
+      <Dependent Role="CustomerPurchase">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="GetBodyStyle_Result">
+    <Property Type="Int32" Name="BodyStyleId" Nullable="false" />
+    <Property Type="String" Name="BodyStyleName" Nullable="false" MaxLength="40" />
+  </ComplexType>
+  <ComplexType Name="GetCarType_Result">
+    <Property Type="Int32" Name="TypeId" Nullable="false" />
+    <Property Type="String" Name="TypeName" Nullable="false" MaxLength="40" />
+  </ComplexType>
+  <ComplexType Name="GetColor_Result">
+    <Property Type="Int32" Name="ColorId" Nullable="false" />
+    <Property Type="String" Name="ColorName" Nullable="false" MaxLength="40" />
+  </ComplexType>
+  <ComplexType Name="GetInterior_Result">
+    <Property Type="Int32" Name="InteriorId" Nullable="false" />
+    <Property Type="String" Name="InteriorName" Nullable="false" MaxLength="40" />
+  </ComplexType>
+  <ComplexType Name="GetTransmission_Result">
+    <Property Type="Int32" Name="TransmissionId" Nullable="false" />
+    <Property Type="String" Name="TransmissionName" Nullable="false" MaxLength="40" />
+  </ComplexType>
+  <ComplexType Name="GetCarMake_Result">
+    <Property Type="Int32" Name="CarMakeId" Nullable="false" />
+    <Property Type="String" Name="MakeName" Nullable="false" MaxLength="60" />
+    <Property Type="DateTime" Name="DateAdded" Nullable="false" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="GetCarModel_Result">
+    <Property Type="Int32" Name="CarModelId" Nullable="false" />
+    <Property Type="Int32" Name="CarMakeId" Nullable="false" />
+    <Property Type="String" Name="ModelName" Nullable="false" MaxLength="60" />
+    <Property Type="DateTime" Name="DateAdded" Nullable="false" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="GetAllUsers_Result">
+    <Property Type="String" Name="Id" Nullable="false" MaxLength="128" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="256" />
+    <Property Type="String" Name="UserName" Nullable="false" MaxLength="256" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="256" />
+  </ComplexType>
+  <ComplexType Name="GetAllUsers">
+    <Property Type="String" Name="Id" Nullable="false" MaxLength="128" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="256" />
+    <Property Type="String" Name="UserName" Nullable="false" MaxLength="256" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="256" />
+  </ComplexType>
+  <ComplexType Name="GetCarMakes_Result">
+    <Property Type="Int32" Name="CarMakeId" Nullable="false" />
+    <Property Type="String" Name="MakeName" Nullable="false" MaxLength="60" />
+    <Property Type="DateTime" Name="DateAdded" Nullable="false" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="GetUserById_Result">
+    <Property Type="String" Name="Id" Nullable="false" MaxLength="128" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="256" />
+    <Property Type="String" Name="UserName" Nullable="false" MaxLength="256" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="256" />
+  </ComplexType>
+  <ComplexType Name="GetSpecialById_Result">
+    <Property Type="Int32" Name="SpecialId" Nullable="false" />
+    <Property Type="String" Name="SpecialTitle" Nullable="false" MaxLength="40" />
+    <Property Type="String" Name="SpecialDescription" Nullable="false" MaxLength="500" />
+  </ComplexType>
+  <ComplexType Name="GetCarMake_Result1">
+    <Property Type="Int32" Name="CarMakeId" Nullable="false" />
+    <Property Type="String" Name="MakeName" Nullable="false" MaxLength="60" />
+    <Property Type="String" Name="UserId" Nullable="false" MaxLength="128" />
+    <Property Type="DateTime" Name="DateAdded" Nullable="false" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="GetCarModel_Result1">
+    <Property Type="Int32" Name="CarModelId" Nullable="false" />
+    <Property Type="Int32" Name="CarMakeId" Nullable="false" />
+    <Property Type="String" Name="ModelName" Nullable="false" MaxLength="60" />
+    <Property Type="String" Name="UserId" Nullable="false" MaxLength="128" />
+    <Property Type="DateTime" Name="DateAdded" Nullable="false" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="GetAllByCarId_Result1">
+    <Property Type="Int32" Name="CarId" Nullable="false" />
+    <Property Type="Int32" Name="Year" Nullable="false" />
+    <Property Type="Int32" Name="CarMakeId" Nullable="true" />
+    <Property Type="String" Name="MakeName" Nullable="true" MaxLength="60" />
+    <Property Type="Int32" Name="CarModelId" Nullable="true" />
+    <Property Type="String" Name="ModelName" Nullable="true" MaxLength="60" />
+    <Property Type="Int32" Name="TypeId" Nullable="true" />
+    <Property Type="String" Name="TypeName" Nullable="true" MaxLength="40" />
+    <Property Type="Int32" Name="BodyStyleId" Nullable="true" />
+    <Property Type="String" Name="BodyStyleName" Nullable="true" MaxLength="40" />
+    <Property Type="Int32" Name="TransmissionId" Nullable="true" />
+    <Property Type="String" Name="TransmissionName" Nullable="true" MaxLength="40" />
+    <Property Type="Int32" Name="ColorId" Nullable="true" />
+    <Property Type="String" Name="ColorName" Nullable="true" MaxLength="40" />
+    <Property Type="Int32" Name="InteriorId" Nullable="true" />
+    <Property Type="String" Name="InteriorName" Nullable="true" MaxLength="40" />
+    <Property Type="Decimal" Name="Mileage" Nullable="false" Precision="10" Scale="2" />
+    <Property Type="String" Name="VINnumber" Nullable="false" MaxLength="40" />
+    <Property Type="Decimal" Name="SalePrice" Nullable="false" Precision="8" Scale="0" />
+    <Property Type="Decimal" Name="MSRP" Nullable="false" Precision="8" Scale="0" />
+    <Property Type="String" Name="CarDescription" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="ImageFileName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="UserId" Nullable="false" MaxLength="128" />
+    <Property Type="Boolean" Name="IsFeatured" Nullable="true" />
+    <Property Type="Boolean" Name="IsPurchased" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="CarMake">
+    <Key>
+      <PropertyRef Name="CarMakeId" />
+    </Key>
+    <Property Name="CarMakeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MakeName" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="User" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="DateAdded" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="CarModels" Relationship="GuildCarsModel.FK__CarModel__CarMak__4BE2E001" FromRole="CarMake" ToRole="CarModel" />
+    <NavigationProperty Name="Cars" Relationship="GuildCarsModel.FK__Car__CarMakeId__593CDB1F" FromRole="CarMake" ToRole="Car" />
+  </EntityType>
+  <EntityType Name="CarModel">
+    <Key>
+      <PropertyRef Name="CarModelId" />
+    </Key>
+    <Property Name="CarModelId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CarMakeId" Type="Int32" Nullable="false" />
+    <Property Name="ModelName" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="User" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="DateAdded" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="CarMake" Relationship="GuildCarsModel.FK__CarModel__CarMak__4BE2E001" FromRole="CarModel" ToRole="CarMake" />
+    <NavigationProperty Name="Cars" Relationship="GuildCarsModel.FK__Car__CarModelId__5A30FF58" FromRole="CarModel" ToRole="Car" />
+  </EntityType>
+  <Association Name="FK__CarModel__CarMak__4BE2E001">
+    <End Type="GuildCarsModel.CarMake" Role="CarMake" Multiplicity="1" />
+    <End Type="GuildCarsModel.CarModel" Role="CarModel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CarMake">
+        <PropertyRef Name="CarMakeId" />
+      </Principal>
+      <Dependent Role="CarModel">
+        <PropertyRef Name="CarMakeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Car">
+    <Key>
+      <PropertyRef Name="CarId" />
+    </Key>
+    <Property Name="CarId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Year" Type="Int32" Nullable="false" />
+    <Property Name="CarMakeId" Type="Int32" Nullable="false" />
+    <Property Name="CarModelId" Type="Int32" Nullable="false" />
+    <Property Name="TypeId" Type="Int32" Nullable="false" />
+    <Property Name="BodyStyleId" Type="Int32" Nullable="false" />
+    <Property Name="TransmissionId" Type="Int32" Nullable="false" />
+    <Property Name="ColorId" Type="Int32" Nullable="false" />
+    <Property Name="InteriorId" Type="Int32" Nullable="false" />
+    <Property Name="Mileage" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="VINnumber" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="SalePrice" Type="Decimal" Nullable="false" Precision="8" Scale="0" />
+    <Property Name="MSRP" Type="Decimal" Nullable="false" Precision="8" Scale="0" />
+    <Property Name="CarDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ImageFileName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsFeatured" Type="Boolean" />
+    <Property Name="IsPurchased" Type="Boolean" />
+    <NavigationProperty Name="BodyStyle" Relationship="GuildCarsModel.FK__Car__BodyStyleId__5C1947CA" FromRole="Car" ToRole="BodyStyle" />
+    <NavigationProperty Name="CarMake" Relationship="GuildCarsModel.FK__Car__CarMakeId__593CDB1F" FromRole="Car" ToRole="CarMake" />
+    <NavigationProperty Name="CarModel" Relationship="GuildCarsModel.FK__Car__CarModelId__5A30FF58" FromRole="Car" ToRole="CarModel" />
+    <NavigationProperty Name="Color" Relationship="GuildCarsModel.FK__Car__ColorId__5E01903C" FromRole="Car" ToRole="Color" />
+    <NavigationProperty Name="Interior" Relationship="GuildCarsModel.FK__Car__InteriorId__5EF5B475" FromRole="Car" ToRole="Interior" />
+    <NavigationProperty Name="Transmission" Relationship="GuildCarsModel.FK__Car__Transmissio__5D0D6C03" FromRole="Car" ToRole="Transmission" />
+    <NavigationProperty Name="CarType" Relationship="GuildCarsModel.FK__Car__TypeId__5B252391" FromRole="Car" ToRole="CarType" />
+    <NavigationProperty Name="Customers" Relationship="GuildCarsModel.FK__Customer__CarId__687F1EAF" FromRole="Car" ToRole="Customer" />
+    <NavigationProperty Name="Purchases" Relationship="GuildCarsModel.FK__Purchase__CarId__0E25A4AA" FromRole="Car" ToRole="Purchase" />
+  </EntityType>
+  <Association Name="FK__Car__BodyStyleId__5C1947CA">
+    <End Type="GuildCarsModel.BodyStyle" Role="BodyStyle" Multiplicity="1" />
+    <End Type="GuildCarsModel.Car" Role="Car" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BodyStyle">
+        <PropertyRef Name="BodyStyleId" />
+      </Principal>
+      <Dependent Role="Car">
+        <PropertyRef Name="BodyStyleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Car__CarMakeId__593CDB1F">
+    <End Type="GuildCarsModel.CarMake" Role="CarMake" Multiplicity="1" />
+    <End Type="GuildCarsModel.Car" Role="Car" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CarMake">
+        <PropertyRef Name="CarMakeId" />
+      </Principal>
+      <Dependent Role="Car">
+        <PropertyRef Name="CarMakeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Car__CarModelId__5A30FF58">
+    <End Type="GuildCarsModel.CarModel" Role="CarModel" Multiplicity="1" />
+    <End Type="GuildCarsModel.Car" Role="Car" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CarModel">
+        <PropertyRef Name="CarModelId" />
+      </Principal>
+      <Dependent Role="Car">
+        <PropertyRef Name="CarModelId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Car__ColorId__5E01903C">
+    <End Type="GuildCarsModel.Color" Role="Color" Multiplicity="1" />
+    <End Type="GuildCarsModel.Car" Role="Car" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Color">
+        <PropertyRef Name="ColorId" />
+      </Principal>
+      <Dependent Role="Car">
+        <PropertyRef Name="ColorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Car__InteriorId__5EF5B475">
+    <End Type="GuildCarsModel.Interior" Role="Interior" Multiplicity="1" />
+    <End Type="GuildCarsModel.Car" Role="Car" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Interior">
+        <PropertyRef Name="InteriorId" />
+      </Principal>
+      <Dependent Role="Car">
+        <PropertyRef Name="InteriorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Car__Transmissio__5D0D6C03">
+    <End Type="GuildCarsModel.Transmission" Role="Transmission" Multiplicity="1" />
+    <End Type="GuildCarsModel.Car" Role="Car" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Transmission">
+        <PropertyRef Name="TransmissionId" />
+      </Principal>
+      <Dependent Role="Car">
+        <PropertyRef Name="TransmissionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Car__TypeId__5B252391">
+    <End Type="GuildCarsModel.CarType" Role="CarType" Multiplicity="1" />
+    <End Type="GuildCarsModel.Car" Role="Car" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CarType">
+        <PropertyRef Name="TypeId" />
+      </Principal>
+      <Dependent Role="Car">
+        <PropertyRef Name="TypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Customer__CarId__687F1EAF">
+    <End Type="GuildCarsModel.Car" Role="Car" Multiplicity="1" />
+    <End Type="GuildCarsModel.Customer" Role="Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Car">
+        <PropertyRef Name="CarId" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="CarId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="GetNewInventory_Result">
+    <Property Type="Int32" Name="CarId" Nullable="false" />
+    <Property Type="Int32" Name="Year" Nullable="false" />
+    <Property Type="Int32" Name="CarMakeId" Nullable="true" />
+    <Property Type="String" Name="MakeName" Nullable="true" MaxLength="60" />
+    <Property Type="Int32" Name="CarModelId" Nullable="true" />
+    <Property Type="String" Name="ModelName" Nullable="true" MaxLength="60" />
+    <Property Type="Int32" Name="TypeId" Nullable="true" />
+    <Property Type="String" Name="TypeName" Nullable="true" MaxLength="40" />
+    <Property Type="Int32" Name="BodyStyleId" Nullable="true" />
+    <Property Type="String" Name="BodyStyleName" Nullable="true" MaxLength="40" />
+    <Property Type="Int32" Name="TransmissionId" Nullable="true" />
+    <Property Type="String" Name="TransmissionName" Nullable="true" MaxLength="40" />
+    <Property Type="Int32" Name="ColorId" Nullable="true" />
+    <Property Type="String" Name="ColorName" Nullable="true" MaxLength="40" />
+    <Property Type="Int32" Name="InteriorId" Nullable="true" />
+    <Property Type="String" Name="InteriorName" Nullable="true" MaxLength="40" />
+    <Property Type="Decimal" Name="Mileage" Nullable="false" Precision="10" Scale="2" />
+    <Property Type="String" Name="VINnumber" Nullable="false" MaxLength="40" />
+    <Property Type="Decimal" Name="SalePrice" Nullable="false" Precision="8" Scale="0" />
+    <Property Type="Decimal" Name="MSRP" Nullable="false" Precision="8" Scale="0" />
+    <Property Type="String" Name="CarDescription" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="ImageFileName" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="IsFeatured" Nullable="true" />
+    <Property Type="Boolean" Name="IsPurchased" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GetUsedInventory_Result">
+    <Property Type="Int32" Name="CarId" Nullable="false" />
+    <Property Type="Int32" Name="Year" Nullable="false" />
+    <Property Type="Int32" Name="CarMakeId" Nullable="true" />
+    <Property Type="String" Name="MakeName" Nullable="true" MaxLength="60" />
+    <Property Type="Int32" Name="CarModelId" Nullable="true" />
+    <Property Type="String" Name="ModelName" Nullable="true" MaxLength="60" />
+    <Property Type="Int32" Name="TypeId" Nullable="true" />
+    <Property Type="String" Name="TypeName" Nullable="true" MaxLength="40" />
+    <Property Type="Int32" Name="BodyStyleId" Nullable="true" />
+    <Property Type="String" Name="BodyStyleName" Nullable="true" MaxLength="40" />
+    <Property Type="Int32" Name="TransmissionId" Nullable="true" />
+    <Property Type="String" Name="TransmissionName" Nullable="true" MaxLength="40" />
+    <Property Type="Int32" Name="ColorId" Nullable="true" />
+    <Property Type="String" Name="ColorName" Nullable="true" MaxLength="40" />
+    <Property Type="Int32" Name="InteriorId" Nullable="true" />
+    <Property Type="String" Name="InteriorName" Nullable="true" MaxLength="40" />
+    <Property Type="Decimal" Name="Mileage" Nullable="false" Precision="10" Scale="2" />
+    <Property Type="String" Name="VINnumber" Nullable="false" MaxLength="40" />
+    <Property Type="Decimal" Name="SalePrice" Nullable="false" Precision="8" Scale="0" />
+    <Property Type="Decimal" Name="MSRP" Nullable="false" Precision="8" Scale="0" />
+    <Property Type="String" Name="CarDescription" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="ImageFileName" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="IsFeatured" Nullable="true" />
+    <Property Type="Boolean" Name="IsPurchased" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GetNewInventory_Result1">
+    <Property Type="Int32" Name="CarId" Nullable="false" />
+    <Property Type="Int32" Name="Year" Nullable="false" />
+    <Property Type="Int32" Name="CarMakeId" Nullable="true" />
+    <Property Type="String" Name="MakeName" Nullable="true" MaxLength="60" />
+    <Property Type="Int32" Name="CarModelId" Nullable="true" />
+    <Property Type="String" Name="ModelName" Nullable="true" MaxLength="60" />
+    <Property Type="Int32" Name="TypeId" Nullable="true" />
+    <Property Type="String" Name="TypeName" Nullable="true" MaxLength="40" />
+    <Property Type="Int32" Name="BodyStyleId" Nullable="true" />
+    <Property Type="String" Name="BodyStyleName" Nullable="true" MaxLength="40" />
+    <Property Type="Int32" Name="TransmissionId" Nullable="true" />
+    <Property Type="String" Name="TransmissionName" Nullable="true" MaxLength="40" />
+    <Property Type="Int32" Name="ColorId" Nullable="true" />
+    <Property Type="String" Name="ColorName" Nullable="true" MaxLength="40" />
+    <Property Type="Int32" Name="InteriorId" Nullable="true" />
+    <Property Type="String" Name="InteriorName" Nullable="true" MaxLength="40" />
+    <Property Type="Decimal" Name="Mileage" Nullable="false" Precision="10" Scale="2" />
+    <Property Type="String" Name="VINnumber" Nullable="false" MaxLength="40" />
+    <Property Type="Decimal" Name="SalePrice" Nullable="false" Precision="8" Scale="0" />
+    <Property Type="Decimal" Name="MSRP" Nullable="false" Precision="8" Scale="0" />
+    <Property Type="String" Name="CarDescription" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="ImageFileName" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="IsFeatured" Nullable="true" />
+    <Property Type="Boolean" Name="IsPurchased" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GetUsedInventory_Result1">
+    <Property Type="Int32" Name="CarId" Nullable="false" />
+    <Property Type="Int32" Name="Year" Nullable="false" />
+    <Property Type="Int32" Name="CarMakeId" Nullable="true" />
+    <Property Type="String" Name="MakeName" Nullable="true" MaxLength="60" />
+    <Property Type="Int32" Name="CarModelId" Nullable="true" />
+    <Property Type="String" Name="ModelName" Nullable="true" MaxLength="60" />
+    <Property Type="Int32" Name="TypeId" Nullable="true" />
+    <Property Type="String" Name="TypeName" Nullable="true" MaxLength="40" />
+    <Property Type="Int32" Name="BodyStyleId" Nullable="true" />
+    <Property Type="String" Name="BodyStyleName" Nullable="true" MaxLength="40" />
+    <Property Type="Int32" Name="TransmissionId" Nullable="true" />
+    <Property Type="String" Name="TransmissionName" Nullable="true" MaxLength="40" />
+    <Property Type="Int32" Name="ColorId" Nullable="true" />
+    <Property Type="String" Name="ColorName" Nullable="true" MaxLength="40" />
+    <Property Type="Int32" Name="InteriorId" Nullable="true" />
+    <Property Type="String" Name="InteriorName" Nullable="true" MaxLength="40" />
+    <Property Type="Decimal" Name="Mileage" Nullable="false" Precision="10" Scale="2" />
+    <Property Type="String" Name="VINnumber" Nullable="false" MaxLength="40" />
+    <Property Type="Decimal" Name="SalePrice" Nullable="false" Precision="8" Scale="0" />
+    <Property Type="Decimal" Name="MSRP" Nullable="false" Precision="8" Scale="0" />
+    <Property Type="String" Name="CarDescription" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="ImageFileName" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="IsFeatured" Nullable="true" />
+    <Property Type="Boolean" Name="IsPurchased" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="Purchase">
+    <Key>
+      <PropertyRef Name="PurchaseId" />
+    </Key>
+    <Property Name="PurchaseId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CarId" Type="Int32" Nullable="false" />
+    <Property Name="PurchasePrice" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="PurchaseTypeId" Type="Int32" Nullable="false" />
+    <Property Name="SalesPerson" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="DatePurchased" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Car" Relationship="GuildCarsModel.FK__Purchase__CarId__0E25A4AA" FromRole="Purchase" ToRole="Car" />
+    <NavigationProperty Name="CustomerPurchases" Relationship="GuildCarsModel.FK__CustomerP__Purch__17AF0EE4" FromRole="Purchase" ToRole="CustomerPurchase" />
+    <NavigationProperty Name="PurchaseType" Relationship="GuildCarsModel.FK__Purchase__Purcha__0F19C8E3" FromRole="Purchase" ToRole="PurchaseType" />
+  </EntityType>
+  <Association Name="FK__Purchase__CarId__0E25A4AA">
+    <End Type="GuildCarsModel.Car" Role="Car" Multiplicity="1" />
+    <End Type="GuildCarsModel.Purchase" Role="Purchase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Car">
+        <PropertyRef Name="CarId" />
+      </Principal>
+      <Dependent Role="Purchase">
+        <PropertyRef Name="CarId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CustomerP__Purch__17AF0EE4">
+    <End Type="GuildCarsModel.Purchase" Role="Purchase" Multiplicity="1" />
+    <End Type="GuildCarsModel.CustomerPurchase" Role="CustomerPurchase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Purchase">
+        <PropertyRef Name="PurchaseId" />
+      </Principal>
+      <Dependent Role="CustomerPurchase">
+        <PropertyRef Name="PurchaseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Purchase__Purcha__0F19C8E3">
+    <End Type="GuildCarsModel.PurchaseType" Role="PurchaseType" Multiplicity="1" />
+    <End Type="GuildCarsModel.Purchase" Role="Purchase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PurchaseType">
+        <PropertyRef Name="PurchaseTypeId" />
+      </Principal>
+      <Dependent Role="Purchase">
+        <PropertyRef Name="PurchaseTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="NewInventoryReport_Result">
+    <Property Type="Int32" Name="TotalVehicles" Nullable="true" />
+    <Property Type="Decimal" Name="TotalValue" Nullable="true" Precision="38" Scale="0" />
+    <Property Type="Int32" Name="Year" Nullable="false" />
+    <Property Type="String" Name="MakeName" Nullable="false" MaxLength="60" />
+    <Property Type="String" Name="ModelName" Nullable="false" MaxLength="60" />
+  </ComplexType>
+  <ComplexType Name="UsedInventoryReport_Result">
+    <Property Type="Int32" Name="TotalVehicles" Nullable="true" />
+    <Property Type="Decimal" Name="TotalValue" Nullable="true" Precision="38" Scale="0" />
+    <Property Type="Int32" Name="Year" Nullable="false" />
+    <Property Type="String" Name="MakeName" Nullable="false" MaxLength="60" />
+    <Property Type="String" Name="ModelName" Nullable="false" MaxLength="60" />
+  </ComplexType>
+  <ComplexType Name="SalesReport_Result">
+    <Property Type="Int32" Name="TotalVehicles" Nullable="true" />
+    <Property Type="Decimal" Name="TotalValue" Nullable="true" Precision="38" Scale="2" />
+    <Property Type="String" Name="SalesPerson" Nullable="false" MaxLength="30" />
+  </ComplexType>
+  <ComplexType Name="GetCarModelsByMakeId_Result">
+    <Property Type="String" Name="ModelName" Nullable="false" MaxLength="60" />
+    <Property Type="Int32" Name="CarModelId" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="GetAllUsers_Result1">
+    <Property Type="String" Name="Id" Nullable="false" MaxLength="128" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="256" />
+    <Property Type="String" Name="UserName" Nullable="false" MaxLength="256" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="256" />
+  </ComplexType>
+  <ComplexType Name="GetAllRoles_Result">
+    <Property Type="String" Name="Id" Nullable="false" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="256" />
+  </ComplexType>
+  <ComplexType Name="GetUserById_Result1">
+    <Property Type="String" Name="Id" Nullable="false" MaxLength="128" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="256" />
+    <Property Type="String" Name="UserName" Nullable="false" MaxLength="256" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="256" />
+  </ComplexType>
+  <ComplexType Name="GetUserById_Result2">
+    <Property Type="String" Name="Id" Nullable="false" MaxLength="128" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="256" />
+    <Property Type="String" Name="UserName" Nullable="false" MaxLength="256" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="256" />
+  </ComplexType>
+  <ComplexType Name="GetUserById_Result3">
+    <Property Type="String" Name="Id" Nullable="false" MaxLength="128" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="256" />
+    <Property Type="String" Name="UserName" Nullable="false" MaxLength="256" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="256" />
+    <Property Type="String" Name="PasswordHash" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="AllSalesReports_Result">
+    <Property Type="Int32" Name="TotalVehicles" Nullable="true" />
+    <Property Type="Decimal" Name="TotalValue" Nullable="true" Precision="38" Scale="2" />
+    <Property Type="String" Name="SalesPerson" Nullable="false" MaxLength="30" />
+  </ComplexType>
+  <ComplexType Name="SalesReportByDate_Result">
+    <Property Type="Int32" Name="TotalVehicles" Nullable="true" />
+    <Property Type="Decimal" Name="TotalValue" Nullable="true" Precision="38" Scale="2" />
+    <Property Type="String" Name="SalesPerson" Nullable="false" MaxLength="30" />
+  </ComplexType>
+  <ComplexType Name="GetUserByName_Result">
+    <Property Type="String" Name="Id" Nullable="false" MaxLength="128" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="256" />
+    <Property Type="String" Name="UserName" Nullable="false" MaxLength="256" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="256" />
+    <Property Type="String" Name="PasswordHash" Nullable="true" />
+  </ComplexType>
+</Schema>

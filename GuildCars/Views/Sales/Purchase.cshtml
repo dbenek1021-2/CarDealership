@@ -1,0 +1,163 @@
+﻿@model GuildCars.Models.PurchaseViewModel
+
+@{
+    ViewBag.Title = "Purchase";
+}
+
+@if (!string.IsNullOrEmpty(ViewBag.message))
+{
+    <div class="row" id="successMessage">
+        <h3>@ViewBag.message</h3>
+    </div>
+
+}
+
+else
+{
+    <div class="row" id="purchaseVehicleHeaderDiv">
+        <div class="col-xs-12">
+            <h2>Purchase Vehicle</h2>
+        </div>
+    </div>
+
+    <div class="row" style="border: 2px solid black; padding:3%" id="detailsDiv">
+        <table width="1500">
+            <tbody>
+                <tr>
+                    <td>
+                        <p>
+                            <strong>@Model.Car.Year @Model.Car.MakeName @Model.Car.ModelName</strong>
+                        </p>
+                        <p>
+                            <img class="d-inline-block align-top" src="@Url.Content("~/Images/Cars/" + Model.Car.ImageFileName)" padding-right:20px; padding-bottom: 20px" width="220" height="160">
+                        </p>
+                    </td>
+                    <td>
+                        <p>
+                            <strong>Body Style: </strong>@Model.Car.BodyStyleName
+                        </p>
+                        <p>
+                            <strong>Trans: </strong>@Model.Car.TransmissionName
+                        </p>
+                        <p>
+                            <strong>Color: </strong>@Model.Car.ColorName
+                        </p><br />
+
+                    </td>
+                    <td style="padding-bottom:2.5%; padding-left:3%">
+                        <p>
+                            <strong>Interior: </strong>@Model.Car.InteriorName
+                        </p>
+                        <p>
+                            <strong>Mileage: </strong>@if (Model.Car.Mileage <= 10000)
+                            {
+                                <text>New</text>
+                            }
+                            else
+                            {
+                                <text>@Model.Car.Mileage</text>
+                            }
+                        </p>
+                        <p>
+                            <strong>VIN #: </strong>@Model.Car.VINnumber
+                        </p>
+                    </td>
+                    <td style="padding-bottom:6.2%">
+                        <p>
+                            <strong>Sale Price: </strong>@string.Format("{0:C}", Model.Car.SalePrice)
+                        </p>
+                        <p>
+                            <strong>MSRP: </strong>@string.Format("{0:C}", Model.Car.MSRP)
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td colspan="4">
+                        <p>
+                            <strong>Description:  </strong> @Model.Car.CarDescription
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <br />
+    <div class="row">
+        <div class="col-xs-12" id="salesInfoHeaderDiv">
+            <h2>Sales Information</h2>
+        </div>
+    </div>
+    <div class="col-md-12" id="salesInfoDiv">
+        <div class="col-md-8">
+            @using (Html.BeginForm("Purchase", "Sales", FormMethod.Post, new { enctype = "multipart/form-data", id = "purchaseSubmit" }))
+            {
+                @Html.ValidationSummary()
+                <div class="form-group">
+                    <label for="name">Name</label><br />
+                    @Html.TextBoxFor(c => c.Customer.Name, new { placeholder = "Name", @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label><br />
+                    @Html.TextBoxFor(c => c.Customer.Email, new { placeholder = "ex. jdoe@gmail.com", @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label for="street1">Street 1</label><br />
+                    @Html.TextBoxFor(c => c.Customer.Address1, new { placeholder = "123 Main St", @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label for="street2">Street 1</label><br />
+                    @Html.TextBoxFor(c => c.Customer.Address2, new { placeholder = "Apt. 203", @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone</label><br />
+                    @Html.TextBoxFor(c => c.Customer.Phone, new { placeholder = "ex. 111-111-1111", @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label for="city">City</label><br />
+                    @Html.TextBoxFor(c => c.Customer.City, new { placeholder = "Akron", @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label for="state">State</label><br />
+                    @Html.DropDownListFor(c => c.Customer.StateId, Model.States, new { placeholder = "AK", @class = "form-control", @id = "form-con" })
+                </div>
+                <div class="form-group">
+                    <label for="zipcode">Zipcode</label><br />
+                    @Html.TextBoxFor(c => c.Customer.Zipcode, new { placeholder = "12345", @class = "form-control" })
+                </div>
+                <hr />
+                <div class="form-group">
+                    <label for="price">Purchase Price</label><br />
+                    @Html.TextBoxFor(p => p.Purchase.PurchasePrice, new { placeholder = "$", @class = "form-control", @id = "price" })
+                </div>
+                <div class="form-group">
+                    <label for="purchaseType">Purchase Type</label><br />
+                    @Html.DropDownListFor(p => p.Purchase.PurchaseTypeID, Model.PurchaseType, new { placeholder = "Dealer Finance", @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    @Html.HiddenFor(c => c.Car.CarId, new { Value = Model.Car.CarId })
+                    @Html.HiddenFor(c => c.Car.Year, new { Value = Model.Car.Year })
+                    @Html.HiddenFor(c => c.Car.ModelName, new { Value = Model.Car.ModelName })
+                    @Html.HiddenFor(c => c.Car.MakeName, new { Value = Model.Car.MakeName })
+                    @Html.HiddenFor(c => c.Car.TypeName, new { Value = Model.Car.TypeName })
+                    @Html.HiddenFor(c => c.Car.BodyStyleName, new { Value = Model.Car.BodyStyleName })
+                    @Html.HiddenFor(c => c.Car.TransmissionName, new { Value = Model.Car.TransmissionName })
+                    @Html.HiddenFor(c => c.Car.ColorName, new { Value = Model.Car.ColorName })
+                    @Html.HiddenFor(c => c.Car.InteriorName, new { Value = Model.Car.InteriorName })
+                    @Html.HiddenFor(c => c.Car.Mileage, new { Value = Model.Car.Mileage })
+                    @Html.HiddenFor(c => c.Car.VINnumber, new { Value = Model.Car.VINnumber })
+                    @Html.HiddenFor(c => c.Car.SalePrice, new { Value = Model.Car.SalePrice })
+                    @Html.HiddenFor(c => c.Car.MSRP, new { Value = Model.Car.MSRP })
+                    @Html.HiddenFor(c => c.Car.CarDescription, new { Value = Model.Car.CarDescription })
+                    @Html.HiddenFor(c => c.Car.ImageFileName, new { Value = Model.Car.ImageFileName })
+                    @Html.HiddenFor(c => c.Car.IsFeatured, new { Value = Model.Car.IsFeatured })
+                    @Html.HiddenFor(c => c.Car.IsPurchased, new { Value = Model.Car.IsPurchased })
+                    <button class="btn btn-primary" onclick="return confirm('Are you sure you want to purchase this vehicle?');">Save</button>
+                </div>
+            }
+        </div>
+    </div>
+}
+
+

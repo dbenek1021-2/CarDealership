@@ -1,0 +1,543 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="GuildCarsModelStoreContainer" CdmEntityContainer="GuildCarsEntities">
+    <EntitySetMapping Name="C__MigrationHistory">
+      <EntityTypeMapping TypeName="GuildCarsModel.C__MigrationHistory">
+        <MappingFragment StoreEntitySet="__MigrationHistory">
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+          <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="GuildCarsModel.AspNetRole">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="GuildCarsModel.AspNetUserClaim">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="GuildCarsModel.AspNetUserLogin">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="GuildCarsModel.AspNetUser">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BodyStyles">
+      <EntityTypeMapping TypeName="GuildCarsModel.BodyStyle">
+        <MappingFragment StoreEntitySet="BodyStyle">
+          <ScalarProperty Name="BodyStyleId" ColumnName="BodyStyleId" />
+          <ScalarProperty Name="BodyStyleName" ColumnName="BodyStyleName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CarTypes">
+      <EntityTypeMapping TypeName="GuildCarsModel.CarType">
+        <MappingFragment StoreEntitySet="CarType">
+          <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+          <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Colors">
+      <EntityTypeMapping TypeName="GuildCarsModel.Color">
+        <MappingFragment StoreEntitySet="Color">
+          <ScalarProperty Name="ColorId" ColumnName="ColorId" />
+          <ScalarProperty Name="ColorName" ColumnName="ColorName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ContactUs">
+      <EntityTypeMapping TypeName="GuildCarsModel.ContactU">
+        <MappingFragment StoreEntitySet="ContactUs">
+          <ScalarProperty Name="ContactUsId" ColumnName="ContactUsId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustomerPurchases">
+      <EntityTypeMapping TypeName="GuildCarsModel.CustomerPurchase">
+        <MappingFragment StoreEntitySet="CustomerPurchase">
+          <ScalarProperty Name="CustomerPurchaseId" ColumnName="CustomerPurchaseId" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="PurchaseId" ColumnName="PurchaseId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Interiors">
+      <EntityTypeMapping TypeName="GuildCarsModel.Interior">
+        <MappingFragment StoreEntitySet="Interior">
+          <ScalarProperty Name="InteriorId" ColumnName="InteriorId" />
+          <ScalarProperty Name="InteriorName" ColumnName="InteriorName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Specials">
+      <EntityTypeMapping TypeName="GuildCarsModel.Special">
+        <MappingFragment StoreEntitySet="Special">
+          <ScalarProperty Name="SpecialId" ColumnName="SpecialId" />
+          <ScalarProperty Name="SpecialTitle" ColumnName="SpecialTitle" />
+          <ScalarProperty Name="SpecialDescription" ColumnName="SpecialDescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="States">
+      <EntityTypeMapping TypeName="GuildCarsModel.State">
+        <MappingFragment StoreEntitySet="States">
+          <ScalarProperty Name="StateId" ColumnName="StateId" />
+          <ScalarProperty Name="StateName" ColumnName="StateName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="GuildCarsModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Transmissions">
+      <EntityTypeMapping TypeName="GuildCarsModel.Transmission">
+        <MappingFragment StoreEntitySet="Transmission">
+          <ScalarProperty Name="TransmissionId" ColumnName="TransmissionId" />
+          <ScalarProperty Name="TransmissionName" ColumnName="TransmissionName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles" TypeName="GuildCarsModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+      <EndProperty Name="AspNetRoles">
+        <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+      <EndProperty Name="AspNetUsers">
+        <ScalarProperty Name="Id" ColumnName="UserId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <FunctionImportMapping FunctionImportName="AddRoleToUser" FunctionName="GuildCarsModel.Store.AddRoleToUser" />
+    <FunctionImportMapping FunctionImportName="AddSpecial" FunctionName="GuildCarsModel.Store.AddSpecial" />
+    <FunctionImportMapping FunctionImportName="ChangePassword" FunctionName="GuildCarsModel.Store.ChangePassword" />
+    <FunctionImportMapping FunctionImportName="DbReset" FunctionName="GuildCarsModel.Store.DbReset" />
+    <FunctionImportMapping FunctionImportName="DeleteSpecial" FunctionName="GuildCarsModel.Store.DeleteSpecial" />
+    <FunctionImportMapping FunctionImportName="DeleteUser" FunctionName="GuildCarsModel.Store.DeleteUser" />
+    <FunctionImportMapping FunctionImportName="DeleteVehicle" FunctionName="GuildCarsModel.Store.DeleteVehicle" />
+    <FunctionImportMapping FunctionImportName="EditUser" FunctionName="GuildCarsModel.Store.EditUser" />
+    <FunctionImportMapping FunctionImportName="GetAllByMake" FunctionName="GuildCarsModel.Store.GetAllByMake">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GuildCarsModel.GetAllByMake_Result">
+          <ScalarProperty Name="CarId" ColumnName="CarId" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="CarMakeId" ColumnName="CarMakeId" />
+          <ScalarProperty Name="MakeName" ColumnName="MakeName" />
+          <ScalarProperty Name="CarModelId" ColumnName="CarModelId" />
+          <ScalarProperty Name="ModelName" ColumnName="ModelName" />
+          <ScalarProperty Name="ColorId" ColumnName="ColorId" />
+          <ScalarProperty Name="InteriorId" ColumnName="InteriorId" />
+          <ScalarProperty Name="Mileage" ColumnName="Mileage" />
+          <ScalarProperty Name="MSRP" ColumnName="MSRP" />
+          <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
+          <ScalarProperty Name="VINnumber" ColumnName="VINnumber" />
+          <ScalarProperty Name="ImageFileName" ColumnName="ImageFileName" />
+          <ScalarProperty Name="IsFeatured" ColumnName="IsFeatured" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAllByModel" FunctionName="GuildCarsModel.Store.GetAllByModel" />
+    <FunctionImportMapping FunctionImportName="GetAllByYear" FunctionName="GuildCarsModel.Store.GetAllByYear">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GuildCarsModel.GetAllByYear_Result">
+          <ScalarProperty Name="CarId" ColumnName="CarId" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="CarMakeId" ColumnName="CarMakeId" />
+          <ScalarProperty Name="MakeName" ColumnName="MakeName" />
+          <ScalarProperty Name="CarModelId" ColumnName="CarModelId" />
+          <ScalarProperty Name="ModelName" ColumnName="ModelName" />
+          <ScalarProperty Name="ColorId" ColumnName="ColorId" />
+          <ScalarProperty Name="InteriorId" ColumnName="InteriorId" />
+          <ScalarProperty Name="Mileage" ColumnName="Mileage" />
+          <ScalarProperty Name="MSRP" ColumnName="MSRP" />
+          <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
+          <ScalarProperty Name="VINnumber" ColumnName="VINnumber" />
+          <ScalarProperty Name="ImageFileName" ColumnName="ImageFileName" />
+          <ScalarProperty Name="IsFeatured" ColumnName="IsFeatured" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAllSpecials" FunctionName="GuildCarsModel.Store.GetAllSpecials" />
+    <FunctionImportMapping FunctionImportName="HomePageFS" FunctionName="GuildCarsModel.Store.HomePageFS">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GuildCarsModel.HomePageFS_Result">
+          <ScalarProperty Name="CarId" ColumnName="CarId" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="CarMakeId" ColumnName="CarMakeId" />
+          <ScalarProperty Name="MakeName" ColumnName="MakeName" />
+          <ScalarProperty Name="CarModelId" ColumnName="CarModelId" />
+          <ScalarProperty Name="ModelName" ColumnName="ModelName" />
+          <ScalarProperty Name="ColorId" ColumnName="ColorId" />
+          <ScalarProperty Name="InteriorId" ColumnName="InteriorId" />
+          <ScalarProperty Name="Mileage" ColumnName="Mileage" />
+          <ScalarProperty Name="MSRP" ColumnName="MSRP" />
+          <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
+          <ScalarProperty Name="VINnumber" ColumnName="VINnumber" />
+          <ScalarProperty Name="ImageFileName" ColumnName="ImageFileName" />
+          <ScalarProperty Name="IsFeatured" ColumnName="IsFeatured" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="GuildCarsModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="GuildCarsModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="GuildCarsModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="GuildCarsModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GuildCarsModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="GuildCarsModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GuildCarsModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="GuildCarsModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="GuildCarsModel.Store.sp_upgraddiagrams" />
+    <FunctionImportMapping FunctionImportName="SubmitContactUs" FunctionName="GuildCarsModel.Store.SubmitContactUs" />
+    <FunctionImportMapping FunctionImportName="GetAllFeatured" FunctionName="GuildCarsModel.Store.GetAllFeatured">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GuildCarsModel.GetAllFeatured_Result">
+          <ScalarProperty Name="CarId" ColumnName="CarId" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="CarMakeId" ColumnName="CarMakeId" />
+          <ScalarProperty Name="MakeName" ColumnName="MakeName" />
+          <ScalarProperty Name="CarModelId" ColumnName="CarModelId" />
+          <ScalarProperty Name="ModelName" ColumnName="ModelName" />
+          <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+          <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+          <ScalarProperty Name="BodyStyleId" ColumnName="BodyStyleId" />
+          <ScalarProperty Name="BodyStyleName" ColumnName="BodyStyleName" />
+          <ScalarProperty Name="TransmissionId" ColumnName="TransmissionId" />
+          <ScalarProperty Name="TransmissionName" ColumnName="TransmissionName" />
+          <ScalarProperty Name="ColorId" ColumnName="ColorId" />
+          <ScalarProperty Name="ColorName" ColumnName="ColorName" />
+          <ScalarProperty Name="InteriorId" ColumnName="InteriorId" />
+          <ScalarProperty Name="InteriorName" ColumnName="InteriorName" />
+          <ScalarProperty Name="Mileage" ColumnName="Mileage" />
+          <ScalarProperty Name="VINnumber" ColumnName="VINnumber" />
+          <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
+          <ScalarProperty Name="MSRP" ColumnName="MSRP" />
+          <ScalarProperty Name="CarDescription" ColumnName="CarDescription" />
+          <ScalarProperty Name="ImageFileName" ColumnName="ImageFileName" />
+          <ScalarProperty Name="IsFeatured" ColumnName="IsFeatured" />
+          <ScalarProperty Name="IsPurchased" ColumnName="IsPurchased" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="PurchaseTypes">
+      <EntityTypeMapping TypeName="GuildCarsModel.PurchaseType">
+        <MappingFragment StoreEntitySet="PurchaseType">
+          <ScalarProperty Name="PurchaseTypeName" ColumnName="PurchaseTypeName" />
+          <ScalarProperty Name="PurchaseTypeId" ColumnName="PurchaseTypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GetPurchaseType" FunctionName="GuildCarsModel.Store.GetPurchaseType" />
+    <FunctionImportMapping FunctionImportName="GetStates" FunctionName="GuildCarsModel.Store.GetStates">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GuildCarsModel.GetStates_Result">
+          <ScalarProperty Name="StateId" ColumnName="StateId" />
+          <ScalarProperty Name="StateName" ColumnName="StateName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="GuildCarsModel.Customer">
+        <MappingFragment StoreEntitySet="Customer">
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+          <ScalarProperty Name="StateId" ColumnName="StateId" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CarId" ColumnName="CarId" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GetBodyStyle" FunctionName="GuildCarsModel.Store.GetBodyStyle" />
+    <FunctionImportMapping FunctionImportName="GetCarType" FunctionName="GuildCarsModel.Store.GetCarType" />
+    <FunctionImportMapping FunctionImportName="GetColor" FunctionName="GuildCarsModel.Store.GetColor" />
+    <FunctionImportMapping FunctionImportName="GetInterior" FunctionName="GuildCarsModel.Store.GetInterior" />
+    <FunctionImportMapping FunctionImportName="GetTransmission" FunctionName="GuildCarsModel.Store.GetTransmission">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GuildCarsModel.GetTransmission_Result">
+          <ScalarProperty Name="TransmissionId" ColumnName="TransmissionId" />
+          <ScalarProperty Name="TransmissionName" ColumnName="TransmissionName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="AddVehicleMake" FunctionName="GuildCarsModel.Store.AddVehicleMake" />
+    <FunctionImportMapping FunctionImportName="AddVehicle" FunctionName="GuildCarsModel.Store.AddVehicle" />
+    <FunctionImportMapping FunctionImportName="SaveImageToCar" FunctionName="GuildCarsModel.Store.SaveImageToCar" />
+    <FunctionImportMapping FunctionImportName="EditVehicle" FunctionName="GuildCarsModel.Store.EditVehicle" />
+    <FunctionImportMapping FunctionImportName="GetSpecialById" FunctionName="GuildCarsModel.Store.GetSpecialById" />
+    <FunctionImportMapping FunctionImportName="GetCarMake" FunctionName="GuildCarsModel.Store.GetCarMake" />
+    <FunctionImportMapping FunctionImportName="GetCarModel" FunctionName="GuildCarsModel.Store.GetCarModel" />
+    <FunctionImportMapping FunctionImportName="GetAllByCarId" FunctionName="GuildCarsModel.Store.GetAllByCarId" />
+    <EntitySetMapping Name="CarMakes">
+      <EntityTypeMapping TypeName="GuildCarsModel.CarMake">
+        <MappingFragment StoreEntitySet="CarMake">
+          <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+          <ScalarProperty Name="User" ColumnName="User" />
+          <ScalarProperty Name="MakeName" ColumnName="MakeName" />
+          <ScalarProperty Name="CarMakeId" ColumnName="CarMakeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CarModels">
+      <EntityTypeMapping TypeName="GuildCarsModel.CarModel">
+        <MappingFragment StoreEntitySet="CarModel">
+          <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+          <ScalarProperty Name="User" ColumnName="User" />
+          <ScalarProperty Name="ModelName" ColumnName="ModelName" />
+          <ScalarProperty Name="CarMakeId" ColumnName="CarMakeId" />
+          <ScalarProperty Name="CarModelId" ColumnName="CarModelId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cars">
+      <EntityTypeMapping TypeName="GuildCarsModel.Car">
+        <MappingFragment StoreEntitySet="Car">
+          <ScalarProperty Name="IsPurchased" ColumnName="IsPurchased" />
+          <ScalarProperty Name="IsFeatured" ColumnName="IsFeatured" />
+          <ScalarProperty Name="ImageFileName" ColumnName="ImageFileName" />
+          <ScalarProperty Name="CarDescription" ColumnName="CarDescription" />
+          <ScalarProperty Name="MSRP" ColumnName="MSRP" />
+          <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
+          <ScalarProperty Name="VINnumber" ColumnName="VINnumber" />
+          <ScalarProperty Name="Mileage" ColumnName="Mileage" />
+          <ScalarProperty Name="InteriorId" ColumnName="InteriorId" />
+          <ScalarProperty Name="ColorId" ColumnName="ColorId" />
+          <ScalarProperty Name="TransmissionId" ColumnName="TransmissionId" />
+          <ScalarProperty Name="BodyStyleId" ColumnName="BodyStyleId" />
+          <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+          <ScalarProperty Name="CarModelId" ColumnName="CarModelId" />
+          <ScalarProperty Name="CarMakeId" ColumnName="CarMakeId" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="CarId" ColumnName="CarId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GetNewInventory" FunctionName="GuildCarsModel.Store.GetNewInventory">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GuildCarsModel.GetNewInventory_Result1">
+          <ScalarProperty Name="CarId" ColumnName="CarId" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="CarMakeId" ColumnName="CarMakeId" />
+          <ScalarProperty Name="MakeName" ColumnName="MakeName" />
+          <ScalarProperty Name="CarModelId" ColumnName="CarModelId" />
+          <ScalarProperty Name="ModelName" ColumnName="ModelName" />
+          <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+          <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+          <ScalarProperty Name="BodyStyleId" ColumnName="BodyStyleId" />
+          <ScalarProperty Name="BodyStyleName" ColumnName="BodyStyleName" />
+          <ScalarProperty Name="TransmissionId" ColumnName="TransmissionId" />
+          <ScalarProperty Name="TransmissionName" ColumnName="TransmissionName" />
+          <ScalarProperty Name="ColorId" ColumnName="ColorId" />
+          <ScalarProperty Name="ColorName" ColumnName="ColorName" />
+          <ScalarProperty Name="InteriorId" ColumnName="InteriorId" />
+          <ScalarProperty Name="InteriorName" ColumnName="InteriorName" />
+          <ScalarProperty Name="Mileage" ColumnName="Mileage" />
+          <ScalarProperty Name="VINnumber" ColumnName="VINnumber" />
+          <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
+          <ScalarProperty Name="MSRP" ColumnName="MSRP" />
+          <ScalarProperty Name="CarDescription" ColumnName="CarDescription" />
+          <ScalarProperty Name="ImageFileName" ColumnName="ImageFileName" />
+          <ScalarProperty Name="IsFeatured" ColumnName="IsFeatured" />
+          <ScalarProperty Name="IsPurchased" ColumnName="IsPurchased" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetUsedInventory" FunctionName="GuildCarsModel.Store.GetUsedInventory">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GuildCarsModel.GetUsedInventory_Result1">
+          <ScalarProperty Name="CarId" ColumnName="CarId" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="CarMakeId" ColumnName="CarMakeId" />
+          <ScalarProperty Name="MakeName" ColumnName="MakeName" />
+          <ScalarProperty Name="CarModelId" ColumnName="CarModelId" />
+          <ScalarProperty Name="ModelName" ColumnName="ModelName" />
+          <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+          <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+          <ScalarProperty Name="BodyStyleId" ColumnName="BodyStyleId" />
+          <ScalarProperty Name="BodyStyleName" ColumnName="BodyStyleName" />
+          <ScalarProperty Name="TransmissionId" ColumnName="TransmissionId" />
+          <ScalarProperty Name="TransmissionName" ColumnName="TransmissionName" />
+          <ScalarProperty Name="ColorId" ColumnName="ColorId" />
+          <ScalarProperty Name="ColorName" ColumnName="ColorName" />
+          <ScalarProperty Name="InteriorId" ColumnName="InteriorId" />
+          <ScalarProperty Name="InteriorName" ColumnName="InteriorName" />
+          <ScalarProperty Name="Mileage" ColumnName="Mileage" />
+          <ScalarProperty Name="VINnumber" ColumnName="VINnumber" />
+          <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
+          <ScalarProperty Name="MSRP" ColumnName="MSRP" />
+          <ScalarProperty Name="CarDescription" ColumnName="CarDescription" />
+          <ScalarProperty Name="ImageFileName" ColumnName="ImageFileName" />
+          <ScalarProperty Name="IsFeatured" ColumnName="IsFeatured" />
+          <ScalarProperty Name="IsPurchased" ColumnName="IsPurchased" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="Purchases">
+      <EntityTypeMapping TypeName="GuildCarsModel.Purchase">
+        <MappingFragment StoreEntitySet="Purchase">
+          <ScalarProperty Name="DatePurchased" ColumnName="DatePurchased" />
+          <ScalarProperty Name="SalesPerson" ColumnName="SalesPerson" />
+          <ScalarProperty Name="PurchaseTypeId" ColumnName="PurchaseTypeId" />
+          <ScalarProperty Name="PurchasePrice" ColumnName="PurchasePrice" />
+          <ScalarProperty Name="CarId" ColumnName="CarId" />
+          <ScalarProperty Name="PurchaseId" ColumnName="PurchaseId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="NewInventoryReport" FunctionName="GuildCarsModel.Store.NewInventoryReport">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GuildCarsModel.NewInventoryReport_Result">
+          <ScalarProperty Name="TotalVehicles" ColumnName="TotalVehicles" />
+          <ScalarProperty Name="TotalValue" ColumnName="TotalValue" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="MakeName" ColumnName="MakeName" />
+          <ScalarProperty Name="ModelName" ColumnName="ModelName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UsedInventoryReport" FunctionName="GuildCarsModel.Store.UsedInventoryReport">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GuildCarsModel.UsedInventoryReport_Result">
+          <ScalarProperty Name="TotalVehicles" ColumnName="TotalVehicles" />
+          <ScalarProperty Name="TotalValue" ColumnName="TotalValue" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="MakeName" ColumnName="MakeName" />
+          <ScalarProperty Name="ModelName" ColumnName="ModelName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SalesReport" FunctionName="GuildCarsModel.Store.SalesReport">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GuildCarsModel.SalesReport_Result">
+          <ScalarProperty Name="TotalVehicles" ColumnName="TotalVehicles" />
+          <ScalarProperty Name="TotalValue" ColumnName="TotalValue" />
+          <ScalarProperty Name="SalesPerson" ColumnName="SalesPerson" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetCarModelsByMakeId" FunctionName="GuildCarsModel.Store.GetCarModelsByMakeId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GuildCarsModel.GetCarModelsByMakeId_Result">
+          <ScalarProperty Name="ModelName" ColumnName="ModelName" />
+          <ScalarProperty Name="CarModelId" ColumnName="CarModelId" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAllUsers" FunctionName="GuildCarsModel.Store.GetAllUsers">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GuildCarsModel.GetAllUsers_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAllRoles" FunctionName="GuildCarsModel.Store.GetAllRoles" />
+    <FunctionImportMapping FunctionImportName="AddUser" FunctionName="GuildCarsModel.Store.AddUser" />
+    <FunctionImportMapping FunctionImportName="GetUserById" FunctionName="GuildCarsModel.Store.GetUserById">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GuildCarsModel.GetUserById_Result3">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="PurchaseVehicle" FunctionName="GuildCarsModel.Store.PurchaseVehicle" />
+    <FunctionImportMapping FunctionImportName="AddVehicleModel" FunctionName="GuildCarsModel.Store.AddVehicleModel" />
+    <FunctionImportMapping FunctionImportName="AllSalesReports" FunctionName="GuildCarsModel.Store.AllSalesReports">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GuildCarsModel.AllSalesReports_Result">
+          <ScalarProperty Name="TotalVehicles" ColumnName="TotalVehicles" />
+          <ScalarProperty Name="TotalValue" ColumnName="TotalValue" />
+          <ScalarProperty Name="SalesPerson" ColumnName="SalesPerson" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SalesReportByDate" FunctionName="GuildCarsModel.Store.SalesReportByDate">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GuildCarsModel.SalesReportByDate_Result">
+          <ScalarProperty Name="TotalVehicles" ColumnName="TotalVehicles" />
+          <ScalarProperty Name="TotalValue" ColumnName="TotalValue" />
+          <ScalarProperty Name="SalesPerson" ColumnName="SalesPerson" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetUserByName" FunctionName="GuildCarsModel.Store.GetUserByName">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GuildCarsModel.GetUserByName_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

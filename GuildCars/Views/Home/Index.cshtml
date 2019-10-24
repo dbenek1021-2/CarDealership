@@ -1,0 +1,69 @@
+﻿@model IEnumerable<GuildCars.Models.Queries.GetHomePage>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="container">
+
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        @*<ul class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+        </ul>*@
+        <div class="carousel-inner" id="carouselAlign">
+            <div class="carousel-item active">
+                <a href="@Url.Action("Specials", "Home")">
+                    <img class="d-block w-100" src="~/Images/Specials/special1.jpg" alt="First slide">
+                </a>
+                <div class="carousel-caption">
+                    <h1>Welcome to Guild Cars!</h1>
+                    <p><h4>Click here to check out our current Specials</h4></p>
+                </div>
+            </div>
+            @foreach (var special in Model)
+            {
+                if (string.IsNullOrEmpty(special.MakeName))
+                {
+                    <div class="carousel-item">
+                        <a href="@Url.Action("Specials", "Home")">
+                            <img class="d-block w-100" src="~/Images/Specials/special7.jpg" alt="Next slide">
+                        </a>
+                        <div class="carousel-caption">
+                            <h2>@special.SpecialTitle</h2>
+                        </div>
+                    </div>
+                }
+            }
+
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+    </div>
+    <hr />
+
+    <div class="row">
+        <div class="col-md-12">
+
+            <h3>Featured Vehicles</h3>
+            @foreach (var car in Model)
+            {
+                if (string.IsNullOrEmpty(car.SpecialTitle))
+                {
+                    <div class="col-xs-12 col-sm-6 col-md-4" id="featuredCarsDiv">
+                        <p class="featuredCar"><img src="@Url.Content("~/Images/Cars/" + car.ImageFileName)" width="220" height="160" style="border: 1px solid black" /></p>
+                        <p class="featuredCar"><strong>@car.Year @car.MakeName @car.ModelName</strong></p>
+                        <p class="featuredCar">@string.Format("{0:C}", car.SalePrice)</p>
+                        <p class="featuredCar">@Html.ActionLink("View Details", "Details", "Inventory", new { id = car.CarId }, null)</p>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</div>

@@ -1,0 +1,224 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 50px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select {
+    max-width: 350px;
+}
+
+
+#addVehicleSubmit.error {
+    color: #FF0000;
+}
+
+textarea {
+    max-width: 910px;
+}
+
+.jumbotron {
+    background-color: black;
+    color: white;
+}
+
+.carousel-control {
+    opacity: 0;
+}
+
+.carousel:hover .carousel-control {
+    opacity: 1;
+}
+
+.featuredCar {
+    text-align: center;
+}
+
+#featuredCarsDiv {
+    float: left;
+    align-items: center;
+    position: relative;
+    width: 27%;
+    padding-top: 2%;
+    margin: 32px;
+    border-width: 3px;
+    border-style: solid;
+    border-color: black;
+    text-align: center;
+    background-color: whitesmoke;
+    color: black;
+    transition: box-shadow .3s;
+}
+
+#featuredCarsDiv:hover {
+    box-shadow: 0 0 20px #BD2929;
+}
+
+#detailsDiv {
+    border: 2px solid black;
+    background-color: whitesmoke;
+    padding: 3%;
+}
+
+#specialsDiv {
+    float: left;
+    position: relative;
+    margin: 20px;
+    width: 1065px;
+    border-width: 3px;
+    border-style: solid;
+    border-color: black;
+    text-align: left;
+    background-color: honeydew;
+    color: black;
+}
+
+#specialsDivForAdmin {
+    float: left;
+    position: relative;
+    margin-top: 50px;
+    border-width: 3px;
+    border-style: solid;
+    border-color: black;
+    text-align: left;
+    background-color: honeydew;
+    color: black;
+}
+
+.specials {
+    padding-left: 50px;
+}
+
+#newCarsDiv {
+    float: left;
+    align-items: center;
+    position: relative;
+    width: 27%;
+    padding-top: 2%;
+    margin: 32px;
+    border-width: 3px;
+    border-style: solid;
+    border-color: black;
+    text-align: center;
+    background-color: whitesmoke;
+    color: black;
+    transition: box-shadow .3s;
+}
+
+.square {
+    float: left;
+    align-items: center;
+    position: relative;
+    width: 27%;
+    padding-top: 2%;
+    margin: 32px;
+    border-width: 3px;
+    border-style: solid;
+    border-color: black;
+    text-align: center;
+    background-color: whitesmoke;
+    color: black;
+    transition: box-shadow .3s;
+}
+
+#contactUsDiv {
+    border-radius: 5px;
+    background-color: #FFFCD3;
+    padding: 20px;
+}
+
+#googleMapDiv {
+    display: inline-block;
+}
+
+#searchVehiclesDiv {
+    border-width: 2px;
+    border-color: black;
+    border-style: solid;
+    text-align: center;
+}
+
+#searchForm {
+    text-align: center;
+    justify-content: space-between;
+}
+
+#searchFormDiv {
+    border: 2px solid black;
+    padding: 10px;
+}
+
+#searchTerm {
+    width: 300px;
+}
+
+#adminAddMakeModelDiv {
+    border-width: 2px;
+    border-color: black;
+    border-style: solid;
+    text-align: left;
+    padding: 10px;
+}
+
+#salesReportsDiv {
+    border: 2px solid black;
+    padding: 10px;
+    width:900px;
+}
+
+.label {
+    display: inline-block;
+    width: 140px;
+    text-align: right;
+}
+
+hr {
+    border:none;
+    height:3px;
+    color:red;
+    background-color:gold;
+}
+
+#btnSearch {
+    padding: 8px 100px;
+}
+
+.col-md-1.control-label.description {
+    vertical-align: top;
+}
+
+.navbar-nav > li {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.linkColor {
+    color: white;
+}
+
+.linkColor:hover {
+    color: khaki;
+}
+
+.form-group {
+    padding-left:10px;
+    padding-right:10px;
+
+}
+
+

@@ -1,0 +1,47 @@
+﻿@model GuildCars.Models.UserViewModel
+
+@{
+    ViewBag.Title = "EditUser";
+}
+
+<div class="row">
+    <div class="col-xs-12" id="salesInfoHeaderDiv">
+        <h2>Edit User</h2>
+    </div>
+</div>
+
+@using (Html.BeginForm("EditUser", "Admin", FormMethod.Post, new { enctype = "multipart/form-data", id = "addUserSubmit" }))
+{<div class="form-row">
+        <div class="form-group col-md-12">@Html.ValidationSummary()</div>
+        <div class="form-group col-md-5">
+            <label for="FirstName">First Name</label><br />
+            @Html.TextBoxFor(u => u.User.FirstName, new { @class = "form-control" })
+        </div>
+        <div class="form-group col-md-5">
+            <label for="FirstName">Last Name</label><br />
+            @Html.TextBoxFor(u => u.User.LastName, new { @class = "form-control" })
+        </div>
+        <div class="form-group col-md-5">
+            <label for="FirstName">Email</label><br />
+            @Html.TextBoxFor(u => u.User.Email, new { @class = "form-control" })
+        </div>
+        <div class="form-group col-md-5">
+            <label for="Role">Role</label><br />
+            @Html.DropDownListFor(u => u.User.Role, Model.Roles, new { @class = "form-control" })
+        </div>
+        <div class="form-group col-md-5">
+            <label for="Password">Password</label><br />
+            @Html.PasswordFor(u => u.User.Password, new { @class = "form-control" })
+            @Html.HiddenFor(i => i.User.UserId)
+        </div>
+        <div class="form-group col-md-5">
+            <label class="control-label" for="confirmPassword">Confirm Password</label>
+            <input type="password" name="confirmPassword" id="confirmPassword" class="form-control">
+        </div>
+        <div class="form-group col-md-12" id="saveBtn">
+            <br />
+            <button class="btn btn-primary" id="btnSave">Save</button>
+        </div>
+    </div>
+}
+

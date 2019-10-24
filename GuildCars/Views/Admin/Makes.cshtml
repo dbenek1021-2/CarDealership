@@ -1,0 +1,61 @@
+﻿@model IEnumerable<GuildCars.Models.Tables.CarMake>
+
+@{
+    ViewBag.Title = "Makes";
+}
+
+
+<div class="row">
+    <div class="col-xs-12">
+        <h2>Makes</h2>
+    </div>
+</div>
+
+@using (Html.BeginForm("Makes", "Admin", FormMethod.Post, new { enctype = "multipart/form-data", id = "addMakeSubmit" }))
+{
+    @*@Html.HiddenFor(u => u.User)*@
+    <div class="row">
+        <div class="form-inline col-md-12" id="adminAddMakeModelDiv">
+            <div class="form-group">
+                <label><strong>New Make</strong>&nbsp; &nbsp; &nbsp;</label>
+                <input id="makeName" name="makeName" type="text" placeholder="" class="form-control input-md" required="">
+            </div>
+            <div class="form-group"></div>
+            <div class="form-group">
+                <input type="submit" name="btnSubmit" value="Save" class="btn btn-primary" onclick="return confirm('Are you sure you want to add this Make? This action can not be undone.');" />
+            </div>
+            <div>
+                @Html.ValidationMessage("error")
+            </div>
+        </div>
+        <div class="col-md-6">
+            <br />
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>
+                            Make
+                        </th>
+                        <th>
+                            Date Added
+                        </th>
+                        <th>
+                            User
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var make in Model)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelUser => make.MakeName)</td>
+                            <td>@Convert.ToString(string.Format("{0:MM/dd/yyyy}", make.DateAdded))</td>
+                            <td>@Html.DisplayFor(modelUser => make.User)</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+}
+

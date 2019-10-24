@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>@ViewBag.Title - Guild Car Dealership</title>
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+        
+
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-sm navbar-dark fixed-top bg-dark">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"></button>
+                <img class="d-inline-block align-top" src="~/Images/Guild-Cars-Logo2.gif" style="width:50px; height:50px; padding-right:1%">
+                @Html.ActionLink("Guild Car Dealership", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                
+                <div class="navbar-collapse collapse" id="navbarSupportedContent">
+                    <ul class="nav navbar-nav mr-auto">
+                        <li class="nav-item"><a class="nav-link" href="/Home/Index">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/Inventory/New">New Inventory</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/Inventory/Used">Used Inventory</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/Home/Specials">Specials</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/Home/Contact">Contact Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/Account/Login">Login</a></li>
+
+                        @if (User.IsInRole("Sales") || User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item"><a class="nav-link" href="/Sales/Index">Sales</a></li>
+                        }
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Admin
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="/Admin/Vehicles">Vehicles</a>
+                                    <a class="dropdown-item" href="/Admin/Users">Users</a>
+                                    <a class="dropdown-item" href="/Admin/Makes">Makes</a>
+                                    <a class="dropdown-item" href="/Admin/Models">Models</a>
+                                    <a class="dropdown-item" href="/Admin/Specials">Specials</a>
+                                    <a class="dropdown-item" href="/Reports/Index">Reports</a>
+                                </div>
+                            </li>
+                        }
+
+                        @*@Html.Partial("_LoginPartial")*@
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - Guild Car Dealership - Dani Benek</p>
+            </footer>
+        </div>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+    </body>
+</html>

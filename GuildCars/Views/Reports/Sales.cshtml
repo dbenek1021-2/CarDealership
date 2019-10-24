@@ -1,0 +1,103 @@
+﻿@model GuildCars.Models.SalesReportViewModel
+
+@{
+    ViewBag.Title = "Sales";
+}
+
+<div class="row">
+    <div class="col-xs-12">
+        <h2>Sales Report</h2>
+    </div>
+</div>
+<div class="row" id="salesReportsDiv">
+    <div class="col-md-12" style="padding-left:2%">
+        <p style="padding-left:15px"><strong>Filters</strong></p>
+    </div>
+    <form class="form-inline col-md-12" id="searchForm">
+        <div class="form-group" style="padding-left:15px">
+            <label for="user">User &nbsp;&nbsp;</label>
+            <select class="form-control" id="userId">
+                <option value="" disabled selected>All</option>
+                @foreach (var user in Model.UserList)
+                {
+                    <option value="@user.UserId">@user.FirstName&nbsp;@user.LastName</option>
+                }
+            </select>
+        </div>
+        <div class="form-group">
+            <label>From Date &nbsp;&nbsp;</label>
+            <input type="text" class="form-control" id="fromDate" placeholder="ex. mm/dd/yyyy">
+        </div>
+        <div class="form-group">
+            <label>To Date &nbsp;&nbsp;</label>
+            <input type="text" class="form-control" id="toDate" placeholder="ex. mm/dd/yyyy">
+        </div>
+        <div class="col-md-12">
+            <br />
+            <button onclick="Search()" id="btnSearch" class="btn btn-primary">Search</button>
+        </div>
+    </form>
+</div>
+<div class="row">
+    <div class="col-md-12" id="searchResultsHeader" style="display:none">
+        <br />
+        <h3>Search Results</h3>
+
+        <table class="col-md-12">
+            <thead>
+                <tr>
+                    <th>User</th>
+                    <th>Total Sales</th>
+                    <th>Total Vehicles</th>
+                </tr>
+            </thead>
+            <tbody id="searchResultsTbl"></tbody>
+        </table>
+    </div>
+</div>
+
+
+@section Scripts
+{
+    <script>
+        $(document).ready(function () {
+            $("#searchForm").submit(function (e) {
+                Search();
+                return false;
+            });
+        });
+
+    function Search() {
+        var params;
+        params = 'user=' + $('#userId option:selected').val() + '&fromDate=' + $('#fromDate').val() + '&toDate=' + $('#toDate').val();
+
+        $.ajax({
+            type: 'GET',
+            url: 'http://localhost:51261/api/reports/salesReport?' + params,
+            success: function (results) {
+                console.log(results);
+                $('#searchResultsHeader').css({ 'display': 'block' });
+                $('#searchResultsTbl').empty();
+                const formatter = new Intl.NumberFormat('en-US', {
+                    style: 'currency',
+                    currency: 'USD',
+                    minimumFractionDigits: 2
+                })
+                $.each(results, function (index, report_SalesList) {
+                    
+                    var reportResult =
+                        '<tr><td>' + report_SalesList.User + '</td><td>' + formatter.format(report_SalesList.TotalSales) + '</td><td>' + report_SalesList.TotalVehicles + '</td></tr>'
+
+                    $('#searchResultsTbl').append(reportResult.toString());
+
+                });
+            },
+            error: function () {
+                $('#searchResultsTbl').empty();
+                alert('There were no results matching your search. Check your date input.')
+            }
+        });
+    }
+
+    </script>
+}

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="479f39b2080742be953c810051150f15" Name="Diagram1" ZoomLevel="83">
+        <EntityTypeShape EntityType="GuildCarsModel.C__MigrationHistory" Width="1.5" PointX="7.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="GuildCarsModel.AspNetRole" Width="1.5" PointX="6" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GuildCarsModel.AspNetUserClaim" Width="1.5" PointX="10.5" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GuildCarsModel.AspNetUserLogin" Width="1.5" PointX="10.5" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="GuildCarsModel.AspNetUser" Width="1.5" PointX="8.25" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GuildCarsModel.BodyStyle" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="GuildCarsModel.CarType" Width="1.5" PointX="3" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GuildCarsModel.Color" Width="1.5" PointX="3" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GuildCarsModel.ContactU" Width="1.5" PointX="9.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="GuildCarsModel.CustomerPurchase" Width="1.5" PointX="12.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GuildCarsModel.Interior" Width="1.5" PointX="3" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="GuildCarsModel.Special" Width="1.5" PointX="11.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="GuildCarsModel.State" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GuildCarsModel.sysdiagram" Width="1.5" PointX="12.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="GuildCarsModel.Transmission" Width="1.5" PointX="3" PointY="15.5" IsExpanded="true" />
+        <AssociationConnector Association="GuildCarsModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="GuildCarsModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="GuildCarsModel.AspNetUserRoles" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="GuildCarsModel.PurchaseType" Width="1.5" PointX="13.375" PointY="11.875" />
+        <EntityTypeShape EntityType="GuildCarsModel.Customer" Width="1.5" PointX="7.5" PointY="4.375" />
+        <AssociationConnector Association="GuildCarsModel.FK__Customer__StateI__67AA2AB0" />
+        <AssociationConnector Association="GuildCarsModel.FK__CustomerP__Custo__6A86975B" />
+        <EntityTypeShape EntityType="GuildCarsModel.CarMake" Width="1.5" PointX="0.75" PointY="6" />
+        <EntityTypeShape EntityType="GuildCarsModel.CarModel" Width="1.5" PointX="3" PointY="4.875" />
+        <AssociationConnector Association="GuildCarsModel.FK__CarModel__CarMak__4BE2E001" />
+        <EntityTypeShape EntityType="GuildCarsModel.Car" Width="1.5" PointX="5.25" PointY="4" />
+        <AssociationConnector Association="GuildCarsModel.FK__Car__BodyStyleId__5C1947CA" />
+        <AssociationConnector Association="GuildCarsModel.FK__Car__CarMakeId__593CDB1F" />
+        <AssociationConnector Association="GuildCarsModel.FK__Car__CarModelId__5A30FF58" />
+        <AssociationConnector Association="GuildCarsModel.FK__Car__ColorId__5E01903C" />
+        <AssociationConnector Association="GuildCarsModel.FK__Car__InteriorId__5EF5B475" />
+        <AssociationConnector Association="GuildCarsModel.FK__Car__Transmissio__5D0D6C03" />
+        <AssociationConnector Association="GuildCarsModel.FK__Car__TypeId__5B252391" />
+        <AssociationConnector Association="GuildCarsModel.FK__Customer__CarId__687F1EAF" />
+        <EntityTypeShape EntityType="GuildCarsModel.Purchase" Width="1.5" PointX="15.625" PointY="7.375" />
+        <AssociationConnector Association="GuildCarsModel.FK__Purchase__CarId__0E25A4AA" />
+        <AssociationConnector Association="GuildCarsModel.FK__CustomerP__Purch__17AF0EE4" />
+        <AssociationConnector Association="GuildCarsModel.FK__Purchase__Purcha__0F19C8E3" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
