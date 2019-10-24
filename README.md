@@ -1,1 +1,3 @@
 # CarDealership
+
+•	Developed a Full Stack web app for a simplified version of a car dealership's website and sales support system from scratch. The app provided a public-facing area through Views and use of Bootstrap and CSS, allowing users to search through the inventory of either new or used vehicles, current specials, and to contact the dealership. For the sales personnel, the app provided an area for logging customer information for purchases, an administrative area for user, app, and inventory management, and reporting.  This app was made using Entity Framework – Database First approach and uses stored procedures, interfaces, Ajax, JSON, APIs, and JavaScript.
