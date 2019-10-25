@@ -12,3 +12,17 @@ C:\Users\DaniB\Documents\SoftwareGuild\online-net-dbenek1021\Classwork\CarDealer
 C:\Users\DaniB\Documents\SoftwareGuild\online-net-dbenek1021\Classwork\CarDealership\GuildCars.Data\bin\Debug\GuildCars.Models.dll
 C:\Users\DaniB\Documents\SoftwareGuild\online-net-dbenek1021\Classwork\CarDealership\GuildCars.Data\bin\Debug\GuildCars.Models.pdb
 C:\Users\DaniB\Documents\SoftwareGuild\online-net-dbenek1021\Classwork\CarDealership\GuildCars.Data\bin\Debug\EntityFramework.SqlServer.xml
+D:\Documents\Dani's\Whatever\SoftwareGuild\online-net-dbenek1021\Classwork\CarDealership\GuildCars.Data\bin\Debug\GuildCars.Data.dll.config
+D:\Documents\Dani's\Whatever\SoftwareGuild\online-net-dbenek1021\Classwork\CarDealership\GuildCars.Data\bin\Debug\GuildCars.Data.dll
+D:\Documents\Dani's\Whatever\SoftwareGuild\online-net-dbenek1021\Classwork\CarDealership\GuildCars.Data\bin\Debug\GuildCars.Data.pdb
+D:\Documents\Dani's\Whatever\SoftwareGuild\online-net-dbenek1021\Classwork\CarDealership\GuildCars.Data\bin\Debug\EntityFramework.dll
+D:\Documents\Dani's\Whatever\SoftwareGuild\online-net-dbenek1021\Classwork\CarDealership\GuildCars.Data\bin\Debug\EntityFramework.SqlServer.dll
+D:\Documents\Dani's\Whatever\SoftwareGuild\online-net-dbenek1021\Classwork\CarDealership\GuildCars.Data\bin\Debug\GuildCars.Models.dll
+D:\Documents\Dani's\Whatever\SoftwareGuild\online-net-dbenek1021\Classwork\CarDealership\GuildCars.Data\bin\Debug\GuildCars.Models.pdb
+D:\Documents\Dani's\Whatever\SoftwareGuild\online-net-dbenek1021\Classwork\CarDealership\GuildCars.Data\bin\Debug\EntityFramework.xml
+D:\Documents\Dani's\Whatever\SoftwareGuild\online-net-dbenek1021\Classwork\CarDealership\GuildCars.Data\bin\Debug\EntityFramework.SqlServer.xml
+D:\Documents\Dani's\Whatever\SoftwareGuild\online-net-dbenek1021\Classwork\CarDealership\GuildCars.Data\obj\Debug\GuildCars.Data.csprojAssemblyReference.cache
+D:\Documents\Dani's\Whatever\SoftwareGuild\online-net-dbenek1021\Classwork\CarDealership\GuildCars.Data\obj\Debug\GuildCars.Data.csproj.CoreCompileInputs.cache
+D:\Documents\Dani's\Whatever\SoftwareGuild\online-net-dbenek1021\Classwork\CarDealership\GuildCars.Data\obj\Debug\GuildCars.Data.csproj.CopyComplete
+D:\Documents\Dani's\Whatever\SoftwareGuild\online-net-dbenek1021\Classwork\CarDealership\GuildCars.Data\obj\Debug\GuildCars.Data.dll
+D:\Documents\Dani's\Whatever\SoftwareGuild\online-net-dbenek1021\Classwork\CarDealership\GuildCars.Data\obj\Debug\GuildCars.Data.pdb

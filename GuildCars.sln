@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
@@ -51,57 +50,3 @@ Global
 		SolutionGuid = {2CB4305B-BC80-491D-BCAD-70D8EF6DC28E}
 	EndGlobalSection
 EndGlobal
-=======
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.705
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuildCars", "GuildCars\GuildCars.csproj", "{50154996-DFAC-4FA1-A527-DA658FB20AF3}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuildCars.Models", "GuildCars.Models\GuildCars.Models.csproj", "{5CB74E48-6E1B-4FEA-956D-B8E24AC33CE9}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuildCars.Data", "GuildCars.Data\GuildCars.Data.csproj", "{29966D68-0013-45A4-986C-05E95B4E243D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuildCars.Tests", "GuildCars.Tests\GuildCars.Tests.csproj", "{5B59F07D-7AB6-423F-A4E4-84EE87EDA78A}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{EC9F6B03-406E-4A96-923E-3DD14417FBE3}"
-	ProjectSection(SolutionItems) = preProject
-		Scripts\Database.sql = Scripts\Database.sql
-		Scripts\DbReset.sql = Scripts\DbReset.sql
-		Scripts\Security.sql = Scripts\Security.sql
-		Scripts\Sprocs.sql = Scripts\Sprocs.sql
-		Scripts\Tables.sql = Scripts\Tables.sql
-	EndProjectSection
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{50154996-DFAC-4FA1-A527-DA658FB20AF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{50154996-DFAC-4FA1-A527-DA658FB20AF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{50154996-DFAC-4FA1-A527-DA658FB20AF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{50154996-DFAC-4FA1-A527-DA658FB20AF3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5CB74E48-6E1B-4FEA-956D-B8E24AC33CE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5CB74E48-6E1B-4FEA-956D-B8E24AC33CE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5CB74E48-6E1B-4FEA-956D-B8E24AC33CE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5CB74E48-6E1B-4FEA-956D-B8E24AC33CE9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{29966D68-0013-45A4-986C-05E95B4E243D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{29966D68-0013-45A4-986C-05E95B4E243D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{29966D68-0013-45A4-986C-05E95B4E243D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{29966D68-0013-45A4-986C-05E95B4E243D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5B59F07D-7AB6-423F-A4E4-84EE87EDA78A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5B59F07D-7AB6-423F-A4E4-84EE87EDA78A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5B59F07D-7AB6-423F-A4E4-84EE87EDA78A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5B59F07D-7AB6-423F-A4E4-84EE87EDA78A}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {2CB4305B-BC80-491D-BCAD-70D8EF6DC28E}
-	EndGlobalSection
-EndGlobal
->>>>>>> c9f84ce8c94242b6f8be6ae0254d947f3c17c225
